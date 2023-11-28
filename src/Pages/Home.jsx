@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 function Home() {
   return (
     <div className="text-white max-w-7xl h-screen m-auto flex flex-col items-center justify-center ">
@@ -28,13 +27,12 @@ function Home() {
           <p className="uppercase text-sm">User Choice</p>
         </div>
       </div>
-
+      
       <div className="flex justify-center gap-8">
 
       <Link to="/login"><button className="bg-primary text-white hover:bg-blue-700 rounded transition-colors uppercase font-semibold py-3 px-14 rounded">Login</button></Link>
         <Link to="/play"><button className="bg-primary text-white hover:bg-blue-700 uppercase font-semibold py-3 px-8 rounded">Play as Guest</button></Link>
       </div>
-
     </div>
   );
 }
