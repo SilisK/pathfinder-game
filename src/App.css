@@ -12,6 +12,11 @@
   background-color: #000e3b;
 }
 
+.bg-success {
+  background-color: #174EA5;
+}
+
+
 
 
 .logo {
@@ -49,3 +54,32 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.berlin-avatar {
+  background-image: url(./Image/berlin-avatar-2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.frantz-avatar {
+  background-image: url(./Image/frantz-avatar-3.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.wai-avatar {
+  background-image: url(./Image/wai-avatar.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sillis-avatar {
+  background-image: url(./Image/sillis-avatar-v2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+

@@ -17,28 +17,28 @@ function About() {
         <div className="flex justify-center gap-12">
 
           <div className="">
-            <div className="bg-blue-300 w-48 h-56 mb-2 "></div>
+            <div className="bg-blue-300 w-48 h-56 mb-2 berlin-avatar"></div>
             <div className="text-center">
               <p className="uppercase text-base">Berlin</p>
             </div>
           </div>
 
           <div className="">
-            <div className="bg-blue-300 w-48 h-56 mb-2"></div>
+            <div className="bg-blue-300 w-48 h-56 mb-2 frantz-avatar"></div>
             <div className="text-center">
               <p className="uppercase text-base">Frantz</p>
             </div>
           </div>
 
           <div className="">
-            <div className="bg-blue-300 w-48 h-56 mb-2"></div>
+            <div className="bg-blue-300 w-48 h-56 mb-2 wai-avatar"></div>
             <div className="text-center">
               <p className="uppercase text-base">Wai</p>
             </div>
           </div>
 
           <div className="">
-            <div className="bg-blue-300 w-48 h-56 mb-2"></div>
+            <div className="bg-blue-300 w-48 h-56 mb-2 sillis-avatar"></div>
             <div className="text-center">
               <p className="uppercase text-base">Sillis</p>
             </div>
