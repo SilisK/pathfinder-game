@@ -8,6 +8,7 @@ import { useState } from 'react'
 import NavBar from "./Components/Navbar";
 
 
+
 // PAGES
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -30,6 +31,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/play" element={<Play />} />
+          
         </Routes>
       </Router>
     </div>
