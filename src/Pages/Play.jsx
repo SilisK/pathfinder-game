@@ -1,11 +1,24 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PlayModal.css';
+import Game from "../Components/Game";
+import ChooseAd from "../Components/ChooseAd";
 
+const adventures = [
+  {
+    title: "The Great Escape",
+  },
+  {
+    title: "On Galaxy's Edge",
+  },
+  {
+    title: "The Love of My Life",
+  }
+];
 
 function Play() {
   const [showModal, setShowModal] = useState(false);
-  // const navigate = useNavigate();
+  const [selectedAdventure, setSelectedAdventure] = useState(null);
 
   useEffect(() => {
     // Trigger the modal to open after mounting the component
@@ -17,33 +30,19 @@ function Play() {
     // navigate('/'); // Uncomment to navigate back to home when modal is closed
   };
 
+  
+  const handleAdventureClick = (adventureName) => {
+    setSelectedAdventure(adventureName);
+  };
+
   return (
     <div className="text-white max-w-7xl m-auto flex flex-col items-center justify-center h-screen">
-  
-      <h2 className="text-primary text-5xl tracking-wider text-center font-bold mb-12">Choose Your Adventure</h2>
       
-      <div className="grid grid-cols-3 gap-4 w-full px-10">
-        <div className="flex flex-col items-center">
-          <div className="mb-2">
-            <div className="h-80 w-64 bg-blue-300 flex items-center justify-center">ADVENTURE 1 IMAGE</div>
-          </div>
-          <p className="uppercase text-lg mt-2">THE GREAT ESCAPE</p>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <div className="mb-2">
-            <div className="h-80 w-64 bg-blue-300 flex items-center justify-center">ADVENTURE 2 IMAGE</div>
-          </div>
-          <p className="uppercase text-lg mt-2">ON GALAXY'S EDGE</p>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <div className="mb-2">
-            <div className="h-80 w-64 bg-blue-300 flex items-center justify-center">ADVENTURE 3 IMAGE</div>
-          </div>
-          <p className="uppercase text-lg mt-2">THE LOVE OF MY LIFE</p>
-        </div>
-      </div>
+      {/* Choose Your Adventure */}    
+      {selectedAdventure === null && <ChooseAd adventures={adventures} handleAdventureClick={handleAdventureClick} />}
+      
+      {/* Selected Adventure */} 
+      {selectedAdventure ? <Game adventure={selectedAdventure}/> : null}
 
       <div className={`modal-backdrop ${showModal ? 'modal-visible' : 'modal-hidden'}`}>
         <div className="modal-content">
