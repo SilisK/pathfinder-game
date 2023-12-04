@@ -1,13 +1,41 @@
 import { Link } from "react-router-dom";
-
+import { useState, useEffect, useRef } from 'react';
+import { waves } from '../Components/waves'
 function Home() {
-  return (
-    <div className="text-white max-w-7xl h-screen m-auto flex flex-col items-center justify-center ">
+
+  const [typewriterText, setTypewriterText] = useState('');
+  const dataText = ["Experience the future of gaming."];
+  const waveContainer = useRef(null);
+  useEffect(() => {
+    let currentText = 0;
+    console.log(waves);
+    waves();
+    function typeWriter(text, i) {
+      if (i < text.length) {
+        setTypewriterText(text.substring(0, i + 1));
+        setTimeout(() => typeWriter(text, i + 1), 100);
+      } else {
+        setTimeout(() => startTextAnimation(currentText + 1), 2000);
+      }
+    }
+
+    function startTextAnimation(index) {
+      if (index >= dataText.length) index = 0;
+      currentText = index;
+      typeWriter(dataText[index], 0);
+    }
+
+    startTextAnimation(currentText);
+  },  []);
+
   
-      <h1 className="text-primary text-7xl tracking-wider text-center font-bold mb-4">DYNAMIC <br></br>STORY TELLING</h1>
-      <p className="text-lg tracking-widest mb-16">Experience the future of gaming.</p>
+  return (
+    <div className="text-white max-w-7xl h-screen m-auto flex flex-col items-center justify-center">
       
-      <div className="grid grid-cols-3 gap-11 mb-10">
+      <h1 className="text-primary text-7xl tracking-wider text-center font-bold mb-4 z-40">DYNAMIC <br></br>STORY TELLING</h1>
+      <p className="text-lg tracking-widest mb-16 z-40">{typewriterText}</p>
+      
+      <div className="grid grid-cols-3 gap-11 mb-10 z-40">
         <div className="flex flex-col items-center">
           <div className="mb-2">
             <div className="story-seed"></div>
@@ -28,13 +56,17 @@ function Home() {
         </div>
       </div>
       
-      <div className="flex justify-center gap-8">
-
-      <Link to="/login"><button className="bg-primary text-white hover:bg-blue-700 rounded transition-colors uppercase font-semibold py-3 px-14 rounded">Login</button></Link>
-        <Link to="/play"><button className="bg-primary text-white hover:bg-blue-700 uppercase font-semibold py-3 px-8 rounded">Play as Guest</button></Link>
+      <div className="flex justify-center gap-8 z-40">
+        <Link to="/login" className="bg-primary text-secondary uppercase font-semibold py-3 px-14 rounded btn-left"><span>Login</span></Link>
+        <Link to="/play" className="bg-primary text-secondary uppercase font-semibold py-3 px-8 rounded btn-right"><span>Play as Guest</span></Link>
       </div>
+
+      <div ref={waveContainer} className="waves"></div>
+      
     </div>
   );
 }
 
 export default Home;
+
+

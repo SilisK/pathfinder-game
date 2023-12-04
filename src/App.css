@@ -1,12 +1,13 @@
 .text-primary {
   color: #82CAFF;
 }
+.text-secondary {
+  color: #000e3b;
+}
 
 .bg-primary {
   background-color: #82CAFF;
 }
-
-
 
 .bg-secondary {
   background-color: #000e3b;
@@ -14,6 +15,82 @@
 
 .bg-success {
   background-color: #174EA5;
+}
+
+
+
+/* button-left hover */
+.btn-left {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s;
+}
+.btn-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #174EA5;
+  transition: right 0.4s;
+  z-index: 0;
+}
+.btn-left:hover::before {
+  right: 0;
+}
+.btn-left:hover {
+  color: #fff;
+}
+.btn-left span {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* button-right hover */
+.btn-right {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s;
+}
+.btn-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #174EA5;
+  transition: left 0.4s;
+  /* transform: skewX(-20deg); */
+  z-index: 0;
+}
+.btn-right:hover::before {
+  left: 0;
+}
+.btn-right:hover {
+  color: #fff;
+}
+.btn-right span {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+.waves {
+  /* position: absolute;
+  position: relative;
+  float: left;
+  clear: both;
+  min-height: 100vh;
+  width: 100%; */
+  position: fixed;
+  inset: 20px 5px 30px 5px;
+  min-height: 100vh;
 }
 
 
