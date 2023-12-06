@@ -8,7 +8,7 @@ function Home() {
   const waveContainer = useRef(null);
   useEffect(() => {
     let currentText = 0;
-    console.log(waves);
+    // console.log(waves);
     waves();
     function typeWriter(text, i) {
       if (i < text.length) {
