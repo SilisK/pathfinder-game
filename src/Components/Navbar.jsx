@@ -11,13 +11,13 @@ function NavBar() {
       </Link>
 
       <div className="w-3/12 flex justify-between">
-        <Link to="/" className="text-md px-6 py-2 hover:bg-blue-700 rounded transition-colors">
+        <Link to="/" className="text-md px-6 py-2 hover-underline">
           Home
         </Link>
-        <Link to="/about" className="text-md px-6 py-2 hover:bg-blue-700 rounded transition-colors">
+        <Link to="/about" className="text-md px-6 py-2 hover-underline">
           About
         </Link>
-        <Link to="/login" className="text-md px-6 py-2 hover:bg-blue-700 rounded transition-colors">
+        <Link to="/login" className="text-md px-6 py-2 hover-underline">
           Login
         </Link>
       </div>
