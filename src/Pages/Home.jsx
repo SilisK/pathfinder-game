@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from 'react';
-import { waves } from '../Components/waves'
-function Home() {
+import { waves } from '../Components/waves';
 
+
+function Home() {
   const [typewriterText, setTypewriterText] = useState('');
   const dataText = ["Experience the future of gaming."];
   const waveContainer = useRef(null);
@@ -10,6 +11,7 @@ function Home() {
     let currentText = 0;
     // console.log(waves);
     waves();
+
     function typeWriter(text, i) {
       if (i < text.length) {
         setTypewriterText(text.substring(0, i + 1));
@@ -32,7 +34,7 @@ function Home() {
   return (
     <div className="text-white max-w-7xl h-screen m-auto flex flex-col items-center justify-center">
       
-      <h1 className="text-primary text-7xl tracking-wider text-center font-bold mb-4 z-40">DYNAMIC <br></br>STORY TELLING</h1>
+      <h1 className="text-7xl tracking-wider text-center font-bold mb-4 z-40 gradient-text">DYNAMIC <br></br>STORY TELLING</h1>
       <p className="text-lg tracking-widest mb-16 z-40">{typewriterText}</p>
       
       <div className="grid grid-cols-3 gap-11 mb-10 z-40">
@@ -58,7 +60,7 @@ function Home() {
       
       <div className="flex justify-center gap-8 z-40">
         <Link to="/login" className="bg-primary text-secondary uppercase font-semibold py-3 px-14 rounded btn-left"><span>Login</span></Link>
-        <Link to="/play" className="bg-primary text-secondary uppercase font-semibold py-3 px-8 rounded btn-right"><span>Play as Guest</span></Link>
+        <Link to="/play" className="bg-primary text-secondary uppercase font-semibold py-3 px-8 rounded btn-left"><span>Play as Guest</span></Link>
       </div>
 
       <div ref={waveContainer} className="waves"></div>
