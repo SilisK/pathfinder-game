@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from 'react';
-import { waves } from '../Components/waves';
+import { waves } from '/Components/waves.js?url';
 
 
 function Home() {
   const [typewriterText, setTypewriterText] = useState('');
   const dataText = ["Experience the future of gaming."];
-  const waveContainer = useRef(null);
   useEffect(() => {
     let currentText = 0;
-    // console.log(waves);
+
     waves();
 
     function typeWriter(text, i) {
@@ -63,8 +62,7 @@ function Home() {
         <Link to="/play" className="bg-primary text-secondary uppercase font-semibold py-3 px-8 rounded btn-left"><span>Play as Guest</span></Link>
       </div>
 
-      <div ref={waveContainer} className="waves"></div>
-      
+      <div className="waves"></div>
     </div>
   );
 }
