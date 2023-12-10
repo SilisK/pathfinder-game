@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from 'react';
-import { waves } from '/Components/waves.js?url';
+import { waves } from '../Components/waves.js';
 
 
 function Home() {
