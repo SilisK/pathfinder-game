@@ -1,4 +1,5 @@
-export const waves = () => {
+
+const waves = () => {
   class ShaderProgram {
     constructor(holder, options = {}) {
       options = Object.assign(
@@ -555,3 +556,5 @@ export const waves = () => {
     },
   });
 };
+
+export {waves};
