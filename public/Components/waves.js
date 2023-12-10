@@ -556,5 +556,3 @@ const waves = () => {
     },
   });
 };
-
-export {waves};
