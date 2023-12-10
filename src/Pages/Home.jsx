@@ -8,6 +8,7 @@ function Home() {
   const dataText = ["Experience the future of gaming."];
   useEffect(() => {
     let currentText = 0;
+
     waves();
 
     function typeWriter(text, i) {
