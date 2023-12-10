@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from 'react';
-import { waves } from '../Components/waves.js';
+// import { waves } from '../Components/waves.js';
 
 
 function Home() {
@@ -8,8 +8,8 @@ function Home() {
   const dataText = ["Experience the future of gaming."];
   useEffect(() => {
     let currentText = 0;
-
-    waves();
+    
+    // waves();
 
     function typeWriter(text, i) {
       if (i < text.length) {
@@ -27,9 +27,11 @@ function Home() {
     }
 
     startTextAnimation(currentText);
+    waves();
   },  []);
 
   
+
   return (
     <div className="text-white max-w-7xl h-screen m-auto flex flex-col items-center justify-center">
       
