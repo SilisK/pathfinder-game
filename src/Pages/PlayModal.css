@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.728);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,10 +12,12 @@
 }
 
 .modal-content {
-  background-color: #174da5fb;
-  padding: 200px 500px 200px 500px;
+  /* background-color: #174da5fb; */
+  background: linear-gradient(-30deg, #174da5fb, #45b1fe);
+  padding: 200px 600px 200px 600px;
   border-radius: 0.5rem;
   transform: scale(0.7);
+  opacity: 0.95;
 }
 
 .modal-hidden {

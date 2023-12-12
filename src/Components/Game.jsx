@@ -1,8 +1,8 @@
 function Game({ adventure }) {
   return (
-    <div className="text-white mx-auto flex flex-col justify-center h-screen px-36">
+    <div className="text-white mx-auto flex flex-col justify-center h-screen px-36 z-40">
       {/* Card image and content */}
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row ">
         <div className="w-1/2 h-fit bg-primary flex items-center justify-center mx-6">
             <span className="text-2xl font-bold">IMAGE</span>
         </div>

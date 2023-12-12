@@ -62,7 +62,7 @@
 
 
 /* Common styles for both buttons */
-.btn-left, .btn-right {
+.btn-gradient {
   position: relative;
   overflow: hidden;
   transition: color 0.4s, transform 0.4s;
@@ -70,7 +70,7 @@
 }
 
 
-.btn-left {
+.btn-gradient {
   /* background-color: #82CAFF; */
   background: linear-gradient(-30deg, #470063, #374afc);
   /* background: linear-gradient(-30deg, #82CAFF, #374afc); */
@@ -81,7 +81,7 @@
   transition: all 2s ease;
   overflow: hidden;
 }
-.btn-left:after {
+.btn-gradient:after {
   position: absolute;
   content: " ";
   top: 0;
@@ -93,13 +93,13 @@
   -webkit-transform: scale(.1);
   transform: scale(.1);
 }
-.btn-left:hover {
+.btn-gradient:hover {
   /* color: #fff; */
   color: #000e3b;
   border: none;
   background: transparent;
 }
-.btn-left:hover:after {
+.btn-gradient:hover:after {
   /* background: rgb(0,3,255); */
   /* background: linear-gradient(-30deg, #470063, #374afc); */
   background: #82CAFF;

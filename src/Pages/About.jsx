@@ -1,8 +1,17 @@
+import { useState, useEffect } from 'react';
+
+
 function About() {
+
+  useEffect(() => {
+    waves();
+  }, []);
+
+
   return (
     <div className="text-white max-w-7xl m-auto h-screen flex flex-col items-center justify-center">
 
-      <div className="w-3/5 mb-24">
+      <div className="w-3/5 mb-24 z-40">
         <h2 className="text-4xl mb-4 tracking-wider">What is <span className="text-blue-300">PATHFINDER</span> Exactly</h2>
         <p className="leading-relaxed text-base">
           PathFinder is a gaming web app that uses ChatGPT and Dall-E to create dynamic story-telling experiences.
@@ -12,7 +21,7 @@ function About() {
         </p>
       </div>
 
-      <div className="">
+      <div className="z-40">
         <h2 className="text-3xl text-center tracking-wider mb-8">MEET THE TEAM</h2>
         <div className="flex justify-center gap-12">
 
@@ -46,6 +55,8 @@ function About() {
  
         </div>
       </div>
+
+      <div className="waves"></div>
     </div>
   );
 }
