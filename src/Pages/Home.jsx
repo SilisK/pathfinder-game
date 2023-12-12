@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 // import { waves } from '../Components/waves.js';
 
 
@@ -60,8 +60,8 @@ function Home() {
       </div>
       
       <div className="flex justify-center gap-8 z-40">
-        <Link to="/login" className="bg-primary text-secondary uppercase font-semibold py-3 px-14 rounded btn-left"><span>Login</span></Link>
-        <Link to="/play" className="bg-primary text-secondary uppercase font-semibold py-3 px-8 rounded btn-left"><span>Play as Guest</span></Link>
+        <Link to="/login" className="bg-primary text-secondary uppercase font-semibold py-3 px-14 rounded btn-gradient"><span>Login</span></Link>
+        <Link to="/play" className="bg-primary text-secondary uppercase font-semibold py-3 px-8 rounded btn-gradient"><span>Play as Guest</span></Link>
       </div>
 
       <div className="waves"></div>
