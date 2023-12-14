@@ -126,6 +126,96 @@
 
 
 
+
+.aventures-box {
+  height: 320px;
+  width: 240px;
+  background-color: #001d73;
+  position: relative;
+  overflow: hidden;
+}
+
+.aventures-box:before {
+  height: 400px;
+  width: 400px;
+  background: conic-gradient(rgb(130,202,255) 20deg, transparent 120deg);
+  transform-origin: center;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: spin 4s linear infinite;
+}
+
+.aventures-box:after {
+  height: 315px;
+  width: 237px;
+  background-color: #001d73;
+  content: "";
+  position: absolute;
+  /* top: calc(50% - 70px); */
+  left: 50%;
+  transform: translate(-50%);
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+
+.aventures-box:hover {
+  height: 320px;
+  width: 240px;
+  background-color: #359cfc;
+  position: relative;
+  overflow: hidden;
+}
+
+.aventures-box:hover:before {
+  height: 400px;
+  width: 400px;
+  background: conic-gradient(rgb(75, 10, 252) 20deg, transparent 120deg);
+  transform-origin: center;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: spin 4s linear infinite;
+}
+
+.aventures-box:hover:after {
+  height: 315px;
+  width: 237px;
+  background: linear-gradient(-30deg, #5746dcfb, #45b1fe);
+  content: "";
+  position: absolute;
+  /* top: calc(50% - 70px); */
+  left: 50%;
+  transform: translate(-50%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .logo {
   width: 50px;
   height: 50px;
