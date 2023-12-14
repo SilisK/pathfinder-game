@@ -8,7 +8,10 @@ function ChooseAd({handleAdventureClick, adventures}) {
           adventures.map((ad, index) => (
             <div className="flex flex-col items-center" onClick={() => handleAdventureClick(ad)}>
               <div className="mb-2 border-animation">
-                <div className="h-80 w-64 bg-blue-300 flex items-center justify-center">ADVENTURE {index+1} IMAGE</div>
+                <div className="flex items-center justify-center cursor-pointer aventures-box"> 
+                  <p className="z-40">ADVENTURE {index+1} IMAGE</p>
+                
+                </div>
               </div>
               <p className="uppercase text-lg mt-2">{ad.title}</p>
             </div>
