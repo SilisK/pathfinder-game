@@ -1,23 +1,24 @@
-
-function ChooseAd({handleAdventureClick, adventures}) {
-  return(
+function ChooseAd({ handleAdventureClick, adventures }) {
+  return (
     <div className="z-40">
-      <h2 className="text-primary text-5xl tracking-wider text-center font-bold mb-12">Choose Your Adventure</h2>
+      <h2 className="text-primary text-5xl tracking-wider text-center font-bold mb-12">
+        Choose Your Adventure
+      </h2>
       <div className="grid grid-cols-3 gap-4 w-full px-10">
-        {
-          adventures.map((ad, index) => (
-            <div className="flex flex-col items-center" onClick={() => handleAdventureClick(ad)}>
-              <div className="mb-2 border-animation">
-                <div className="flex items-center justify-center cursor-pointer aventures-box"> 
-                  <p className="z-40">ADVENTURE {index+1} IMAGE</p>
-                
-                </div>
+        {adventures.map((ad, index) => (
+          <div
+            className="flex flex-col items-center"
+            onClick={() => handleAdventureClick(index)}
+            key={index}
+          >
+            <div className="mb-2 border-animation">
+              <div className="flex items-center justify-center cursor-pointer aventures-box">
+                <p className="z-40">ADVENTURE {index + 1} IMAGE</p>
               </div>
-              <p className="uppercase text-lg mt-2">{ad.title}</p>
             </div>
-          ))
-        }
-
+            <p className="uppercase text-lg mt-2">{ad.title}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
