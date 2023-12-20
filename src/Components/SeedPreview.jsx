@@ -6,11 +6,11 @@ export default function SeedPreview({
     setSeed,
   }) {
     return (
-      <div className="active-story grid place-items-center gap-10 p-5">
-        <div className="text-center grid w-full gap-5 place-items-center md:items-center md:grid-flow-col md:text-left">
-          <img src={image} className="rounded-xl border-white border-2" />
-          <div className="grid gap-5">
-            <h1 className="text-4xl font-semibold">{title}</h1>
+      <div className="">
+        <div className="">
+          <img src={image} className="" />
+          <div className="">
+            <h1 className="">{title}</h1>
             <p>{plot}</p>
           </div>
         </div>
@@ -19,7 +19,7 @@ export default function SeedPreview({
             setSeed({ image: image, title: title, plot: plot });
             setGameplay(true);
           }}
-          className="w-max"
+          className=""
         >
           Start Adventure
         </button>

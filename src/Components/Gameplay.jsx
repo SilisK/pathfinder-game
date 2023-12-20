@@ -34,16 +34,19 @@ export default function Gameplay({ gameInfo }) {
     setGenerating(false);
   }
 
+
+
+  
   return (
-    <div className="gameplay grid gap-5 p-5">
+    <div className="">
       {/* Progress Bar */}
-      <div className="progress flex gap-3">
+      <div className="">
         {/* Text Percentage */}
         <p>{((choicesCount / gameInfo.maxChoices) * 100).toFixed()}%</p>
         {/* Fill Percentage */}
-        <div className="progress-bar w-full border overflow-hidden">
+        <div className="">
           <div
-            className="fill bg-slate-200 h-full"
+            className=""
             style={{
               width: `${(choicesCount / gameInfo.maxChoices) * 100}%`,
             }}
@@ -52,27 +55,32 @@ export default function Gameplay({ gameInfo }) {
           <div></div>
         </div>
       </div>
+
       {/* Seed Info and Image */}
-      <div>
-        <h1 className="text-5xl font-bold my-5">{gameInfo.title}</h1>
-        <img
-          src={
-            currentMessage.image_url ? currentMessage.image_url : gameInfo.image
-          }
-          style={{ maxWidth: "100%" }}
-          className="rounded-xl border-4 border-white w-full"
-        />
-      </div>
-      {/* Current Scenario in the story */}
-      <div>
-        {currentMessage.plot
-          ? currentMessage.plot
-          : currentMessage.end
-          ? "Conclusion: " + currentMessage.end
-          : gameInfo.plot}
-      </div>
-      {/* Initialize the story, this must be successful at least once */}
-      {!initialized && !generating ? (
+      <div className="flex flex-col items-center">
+        <div className="">
+          <h1 className="text-5xl font-bold my-5 text-center">{gameInfo.title}</h1>
+
+          <img
+            src={
+              currentMessage.image_url ? currentMessage.image_url : gameInfo.image
+            }
+            style={{ width: "290px", height: "380px" }}
+            className="m-auto"
+          />
+        </div>
+          
+        {/* Current Scenario in the story */}
+        <div>
+          {currentMessage.plot
+            ? currentMessage.plot
+            : currentMessage.end
+            ? "Conclusion: " + currentMessage.end
+            : gameInfo.plot}
+        </div>
+
+        {/* Initialize the story, this must be successful at least once */}
+        {!initialized && !generating ? (
         <div>
           <button
             onClick={() => {
@@ -87,13 +95,15 @@ export default function Gameplay({ gameInfo }) {
           </button>
         </div>
       ) : null}
-      {/* Choices */}
-      {currentMessage.choices && !generating ? (
-        <div className="choices grid gap-10">
+
+
+        {/* Choices */}
+        {currentMessage.choices && !generating ? (
+        <div className="">
           {currentMessage.choices.map((choice, index) => (
             <div
               key={crypto.randomUUID()}
-              className="choice border rounded-xl flex gap-5 py-1 px-5 items-center"
+              className=""
               onClick={() => {
                 // Update progress bar
                 let count = choicesCount + 1;
@@ -119,8 +129,10 @@ export default function Gameplay({ gameInfo }) {
           ))}
         </div>
       ) : generating ? (
+
+        
         // Loading icon (while generating a new response)
-        <div className="flex gap-3 items-center">
+        <div className="">
           {" "}
           <img
             src="https://www.svgrepo.com/show/274034/loading.svg"
@@ -129,6 +141,9 @@ export default function Gameplay({ gameInfo }) {
           <b>Generating...</b>
         </div>
       ) : null}
+      
+      </div>
     </div>
+
   );
 }
