@@ -31,8 +31,9 @@ const team_members = [
 
 function About() {
   useEffect(() => {
-    waves();
+    window.scroll(0, 0);
   }, []);
+
   return (
     <div className="text-white max-w-7xl m-auto py-24 min-h-screen flex flex-col items-center justify-center">
       <div className="w-11/12 mb-24 z-10 md:w-3/5">
@@ -54,7 +55,7 @@ function About() {
         <h2 className="text-3xl text-center tracking-wider mb-8">
           MEET THE TEAM
         </h2>
-        <div className="grid grid-flow-col overflow-x-scroll px-5 gap-12">
+        <div className="grid sm:grid-flow-col sm:overflow-x-scroll px-5 gap-12">
           {team_members.map((member, i) => (
             <div className="flex flex-col items-center" key={i}>
               <div
@@ -68,10 +69,18 @@ function About() {
                 </div>
               </div>
               <section className="flex justify-evenly w-4/6 my-5">
-                <a className="small-gizmo bg-white rounded-full" href={member.github} target="_blank">
+                <a
+                  className="small-gizmo bg-white rounded-full"
+                  href={member.github}
+                  target="_blank"
+                >
                   <img src={github_icon} />
                 </a>
-                <a className="small-gizmo bg-white rounded-full" href={member.linkedin} target="_blank">
+                <a
+                  className="small-gizmo bg-white rounded-full"
+                  href={member.linkedin}
+                  target="_blank"
+                >
                   <img src={linkedin_icon} />
                 </a>
               </section>
@@ -79,7 +88,6 @@ function About() {
           ))}
         </div>
       </div>
-      <div className="waves"></div>
     </div>
   );
 }

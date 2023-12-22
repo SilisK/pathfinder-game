@@ -34,9 +34,6 @@ export default function Gameplay({ gameInfo }) {
     setGenerating(false);
   }
 
-
-
-  
   return (
     <div className="">
       {/* Progress Bar */}
@@ -59,17 +56,21 @@ export default function Gameplay({ gameInfo }) {
       {/* Seed Info and Image */}
       <div className="flex flex-col items-center">
         <div className="">
-          <h1 className="text-5xl font-bold my-5 text-center">{gameInfo.title}</h1>
+          <h1 className="text-5xl font-bold my-5 text-center">
+            {gameInfo.title}
+          </h1>
 
           <img
             src={
-              currentMessage.image_url ? currentMessage.image_url : gameInfo.image
+              currentMessage.image_url
+                ? currentMessage.image_url
+                : gameInfo.image
             }
             style={{ width: "290px", height: "380px" }}
             className="m-auto"
           />
         </div>
-          
+
         {/* Current Scenario in the story */}
         <div>
           {currentMessage.plot
@@ -81,69 +82,67 @@ export default function Gameplay({ gameInfo }) {
 
         {/* Initialize the story, this must be successful at least once */}
         {!initialized && !generating ? (
-        <div>
-          <button
-            onClick={() => {
-              // Generate the initial response to start the story
-              generate([
-                ...messages,
-                { role: "user", content: `${gameInfo.plot}` },
-              ]);
-            }}
-          >
-            Begin Your Journey
-          </button>
-        </div>
-      ) : null}
-
+          <div>
+            <button
+              onClick={() => {
+                // Generate the initial response to start the story
+                generate([
+                  ...messages,
+                  { role: "user", content: `${gameInfo.plot}` },
+                ]);
+              }}
+            >
+              Begin Your Journey
+            </button>
+          </div>
+        ) : null}
 
         {/* Choices */}
         {currentMessage.choices && !generating ? (
-        <div className="">
-          {currentMessage.choices.map((choice, index) => (
-            <div
-              key={crypto.randomUUID()}
-              className=""
-              onClick={() => {
-                // Update progress bar
-                let count = choicesCount + 1;
-                setChoicesCount(count);
+          <div className="">
+            {currentMessage.choices.map((choice, index) => (
+              <div
+                key={crypto.randomUUID()}
+                className=""
+                onClick={() => {
+                  // Update progress bar
+                  let count = choicesCount + 1;
+                  setChoicesCount(count);
 
-                // Set the messages state and generate.
-                let m_messages;
-                if (count < gameInfo.maxChoices) {
-                  m_messages = [...messages, { role: "user", content: choice }];
-                } else {
-                  m_messages = [
-                    ...messages,
-                    { role: "user", content: `${choice} <end/>` },
-                  ];
-                }
-                // Generate a new response to progress through the story
-                generate(m_messages);
-              }}
-            >
-              <b>{index + 1}.</b>
-              <p>{choice}</p>
-            </div>
-          ))}
-        </div>
-      ) : generating ? (
-
-        
-        // Loading icon (while generating a new response)
-        <div className="">
-          {" "}
-          <img
-            src="https://www.svgrepo.com/show/274034/loading.svg"
-            className="loading w-10"
-          />
-          <b>Generating...</b>
-        </div>
-      ) : null}
-      
+                  // Set the messages state and generate.
+                  let m_messages;
+                  if (count < gameInfo.maxChoices) {
+                    m_messages = [
+                      ...messages,
+                      { role: "user", content: choice },
+                    ];
+                  } else {
+                    m_messages = [
+                      ...messages,
+                      { role: "user", content: `${choice} <end/>` },
+                    ];
+                  }
+                  // Generate a new response to progress through the story
+                  generate(m_messages);
+                }}
+              >
+                <b>{index + 1}.</b>
+                <p>{choice}</p>
+              </div>
+            ))}
+          </div>
+        ) : generating ? (
+          // Loading icon (while generating a new response)
+          <div className="">
+            {" "}
+            <img
+              src="https://www.svgrepo.com/show/274034/loading.svg"
+              className="loading w-10"
+            />
+            <b>Generating...</b>
+          </div>
+        ) : null}
       </div>
     </div>
-
   );
 }

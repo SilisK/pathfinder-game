@@ -20,6 +20,8 @@ function Home() {
   const [typewriterText, setTypewriterText] = useState("");
   const dataText = ["Experience the future of gaming..."];
   useEffect(() => {
+    window.scroll(0, 0);
+
     let currentText = 0;
 
     function typeWriter(text, i) {
@@ -38,8 +40,6 @@ function Home() {
     }
 
     startTextAnimation(currentText);
-
-    waves();
   }, []);
 
   return (
@@ -49,7 +49,7 @@ function Home() {
         <h1 className="text-5xl tracking-wider font-bold mb-4 z-40 gradient-text md:text-7xl">
           DYNAMIC STORY TELLING
         </h1>
-        <p className="text-lg tracking-widest">{typewriterText}</p>
+        <p className="text-lg tracking-widest text-white">{typewriterText}</p>
       </header>
       {/* Story Seed, AI Proc... */}
       <div className="grid grid-flow-col text-center place-items-center gap-5 mb-10 z-40 md:gap-11">
@@ -71,8 +71,6 @@ function Home() {
           <button className="btn-gradient">Play as guest</button>
         </Link>
       </div>
-      {/* 3D Background Effect */}
-      <div className="waves"></div>
     </div>
   );
 }
