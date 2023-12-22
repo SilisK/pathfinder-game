@@ -1,3 +1,16 @@
+body {
+  background-color: #000b2d;
+}
+
+button {
+  padding-left: 26px;
+  padding-right: 26px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
 .text-primary {
   color: #82CAFF;
 }
@@ -20,7 +33,9 @@
   background-color: #174EA5;
 }
 
-
+.nav-bg {
+  transition: 0.25s;
+}
 
 
 
@@ -252,6 +267,22 @@
   background-position: center;
 }
 
+.small-gizmo {
+  width: 50px;
+  height: 50px;
+}
+
+.team-member-banner {
+  width: 250px;
+  height: 300px;
+  position: relative;
+}
+
+.team-member-name {
+  position: absolute;
+  bottom: 0;
+}
+
 .berlin-avatar {
   background-image: url(./Image/berlin-avatar-2.png);
   background-repeat: no-repeat;
@@ -273,7 +304,7 @@
   background-size: cover;
 }
 
-.sillis-avatar {
+.silis-avatar {
   background-image: url(./Image/sillis-avatar-v2.png);
   background-repeat: no-repeat;
   background-position: center;
