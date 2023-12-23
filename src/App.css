@@ -11,15 +11,32 @@ button {
   font-weight: 700;
 }
 
+img {
+  position: relative;
+}
+
+@keyframes loading-anim {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.loading {
+  animation: loading-anim 1.1s linear infinite;
+}
+
 .text-primary {
-  color: #82CAFF;
+  color: #82caff;
 }
 .text-secondary {
   color: #000e3b;
 }
 
 .bg-primary {
-  background-color: #82CAFF;
+  background-color: #82caff;
 }
 
 .bg-secondary {
@@ -30,7 +47,7 @@ button {
 }
 
 .bg-success {
-  background-color: #174EA5;
+  background-color: #174ea5;
 }
 
 .nav-bg {
@@ -42,27 +59,25 @@ button {
   display: inline-block;
 }
 
-.hover-underline:hover{
-  color: #82CAFF; 
+.hover-underline:hover {
+  color: #82caff;
 }
 
 .hover-underline::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
-  height: 2px; 
-  bottom: -5px; 
+  height: 2px;
+  bottom: -5px;
   left: 50%;
-  background-color: #82CAFF;
-  transition: width 0.3s ease, left 0.3s ease; 
+  background-color: #82caff;
+  transition: width 0.3s ease, left 0.3s ease;
 }
 
 .hover-underline:hover::after {
   width: 100%;
   left: 0;
 }
-
-
 
 .gradient-text {
   /* background: linear-gradient(0deg, #174EA5, #45b1fe); */
@@ -73,7 +88,6 @@ button {
   -webkit-text-fill-color: transparent;
 }
 
-
 /* Common styles for both buttons */
 .btn-gradient {
   position: relative;
@@ -81,7 +95,6 @@ button {
   transition: color 0.4s, transform 0.4s;
   will-change: transform;
 }
-
 
 .btn-gradient {
   /* background-color: #82CAFF; */
@@ -103,8 +116,8 @@ button {
   width: 100%;
   height: 100%;
   transition: all 0.3s ease;
-  -webkit-transform: scale(.1);
-  transform: scale(.1);
+  -webkit-transform: scale(0.1);
+  transform: scale(0.1);
 }
 .btn-gradient:hover {
   /* color: #fff; */
@@ -115,13 +128,10 @@ button {
 .btn-gradient:hover:after {
   /* background: rgb(0,3,255); */
   /* background: linear-gradient(-30deg, #470063, #374afc); */
-  background: #82CAFF;
+  background: #82caff;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-
-
-
 
 .waves {
   position: fixed;
@@ -129,16 +139,12 @@ button {
   min-height: 100vh;
 }
 
-  /* position: absolute;
+/* position: absolute;
   position: relative;
   float: left;
   clear: both;
   min-height: 100vh;
   width: 100%; */
-
-
-
-
 
 .aventures-box {
   height: 320px;
@@ -151,7 +157,7 @@ button {
 .aventures-box:before {
   height: 400px;
   width: 400px;
-  background: conic-gradient(rgb(130,202,255) 20deg, transparent 120deg);
+  background: conic-gradient(rgb(130, 202, 255) 20deg, transparent 120deg);
   transform-origin: center;
   content: "";
   position: absolute;
@@ -181,8 +187,6 @@ button {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-
-
 
 .aventures-box:hover {
   height: 320px;
@@ -217,18 +221,6 @@ button {
   transform: translate(-50%);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 .logo {
   width: 50px;
   height: 50px;
@@ -236,7 +228,6 @@ button {
   background-size: 90%;
   background-repeat: no-repeat;
 }
-
 
 .story-seed {
   width: 50px;
@@ -308,4 +299,3 @@ button {
   background-position: center;
   background-size: cover;
 }
-

@@ -1,0 +1,16 @@
+.gameplay-container {
+    max-width: 724px;
+    width: 100%;
+}
+
+.gameplay-screen {
+    min-height: 724px;
+}
+
+.gameplay-choice:hover {
+    box-shadow: 1px 1px 10px white;
+}
+
+.progress-fill {
+    height: 25px;
+}

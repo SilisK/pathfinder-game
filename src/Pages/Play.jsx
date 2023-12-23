@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Play.css";
-import Game from "../Components/Game";
+import Gameplay from "../Components/Gameplay";
 import ChooseAd from "../Components/ChooseAd";
 import adventures from "../assets/stories-examples/examples";
 
@@ -28,7 +28,7 @@ function Play() {
           handleAdventureClick={handleAdventureClick}
         />
       ) : (
-        <Game seed={selectedAdventure} />
+        <Gameplay gameInfo={{ ...selectedAdventure, maxChoices: 10 }} />
       )}
     </div>
   );

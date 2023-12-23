@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { systemInstructions } from "../assets/prompt-engineering/prompt-controller";
 import storyNode from "./api";
+import "./Gameplay.css";
 
 export default function Gameplay({ gameInfo }) {
   const [initialized, setInitialized] = useState(false);
@@ -35,113 +36,131 @@ export default function Gameplay({ gameInfo }) {
   }
 
   return (
-    <div className="">
-      {/* Progress Bar */}
-      <div className="">
-        {/* Text Percentage */}
-        <p>{((choicesCount / gameInfo.maxChoices) * 100).toFixed()}%</p>
-        {/* Fill Percentage */}
-        <div className="">
-          <div
-            className=""
-            style={{
-              width: `${(choicesCount / gameInfo.maxChoices) * 100}%`,
-            }}
-          ></div>
-          {/* Story Nodes, allows players to revisit previous choices */}
-          <div></div>
+    <div className="grid place-items-center min-h-screen py-16 bg-black bg-opacity-40 backdrop-filter backdrop-blur">
+      <div className="w-full grid place-items-center gameplay-container">
+        {/* Progress Bar */}
+        <div className="progress-bar flex gap-5 my-10 w-11/12">
+          {/* Text Percentage */}
+          <p className="w-min">
+            {((choicesCount / gameInfo.maxChoices) * 100).toFixed()}%
+          </p>
+          {/* Fill Percentage */}
+          <div className="w-full">
+            <div
+              style={{
+                width: `${(choicesCount / gameInfo.maxChoices) * 100}%`,
+              }}
+              className="progress-fill bg-white"
+            ></div>
+            {/* Story Nodes, allows players to revisit previous choices */}
+            <div></div>
+          </div>
         </div>
-      </div>
 
-      {/* Seed Info and Image */}
-      <div className="flex flex-col items-center">
-        <div className="">
-          <h1 className="text-5xl font-bold my-5 text-center">
-            {gameInfo.title}
-          </h1>
-
-          <img
-            src={
+        {/* Seed Info and Image */}
+        <div
+          className="gameplay-screen px-5 rounded w-full flex flex-col items-center justify-end pb-10 gap-11"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundImage: `url(${
               currentMessage.image_url
                 ? currentMessage.image_url
                 : gameInfo.image
-            }
-            style={{ width: "290px", height: "380px" }}
-            className="m-auto"
-          />
-        </div>
+            })`,
+          }}
+        >
+          {!initialized ? (
+            <div className="rounded bg-gray-700 bg-opacity-10 backdrop-filter backdrop-blur px-10">
+              <h1 className="text-5xl font-bold my-5 text-center">
+                {gameInfo.title}
+              </h1>
+            </div>
+          ) : null}
 
-        {/* Current Scenario in the story */}
-        <div>
-          {currentMessage.plot
-            ? currentMessage.plot
-            : currentMessage.end
-            ? "Conclusion: " + currentMessage.end
-            : gameInfo.plot}
-        </div>
-
-        {/* Initialize the story, this must be successful at least once */}
-        {!initialized && !generating ? (
-          <div>
-            <button
-              onClick={() => {
-                // Generate the initial response to start the story
-                generate([
-                  ...messages,
-                  { role: "user", content: `${gameInfo.plot}` },
-                ]);
-              }}
-            >
-              Begin Your Journey
-            </button>
+          {/* Current Scenario in the story */}
+          <div className="bg-gray-700 bg-opacity-10 backdrop-filter backdrop-blur p-3">
+            {currentMessage.plot
+              ? currentMessage.plot
+              : currentMessage.end
+              ? "Conclusion: " + currentMessage.end
+              : gameInfo.plot}
           </div>
-        ) : null}
 
-        {/* Choices */}
-        {currentMessage.choices && !generating ? (
-          <div className="">
-            {currentMessage.choices.map((choice, index) => (
-              <div
-                key={crypto.randomUUID()}
-                className=""
+          {/* Initialize the story, this must be successful at least once */}
+          {!initialized && !generating ? (
+            <div className="grid gap-11">
+              <button
+                className="btn-gradient"
                 onClick={() => {
-                  // Update progress bar
-                  let count = choicesCount + 1;
-                  setChoicesCount(count);
-
-                  // Set the messages state and generate.
-                  let m_messages;
-                  if (count < gameInfo.maxChoices) {
-                    m_messages = [
-                      ...messages,
-                      { role: "user", content: choice },
-                    ];
-                  } else {
-                    m_messages = [
-                      ...messages,
-                      { role: "user", content: `${choice} <end/>` },
-                    ];
-                  }
-                  // Generate a new response to progress through the story
-                  generate(m_messages);
+                  // Generate the initial response to start the story
+                  generate([
+                    ...messages,
+                    { role: "user", content: `${gameInfo.plot}` },
+                  ]);
                 }}
               >
-                <b>{index + 1}.</b>
-                <p>{choice}</p>
-              </div>
-            ))}
-          </div>
-        ) : generating ? (
-          // Loading icon (while generating a new response)
-          <div className="">
-            {" "}
-            <img
-              src="https://www.svgrepo.com/show/274034/loading.svg"
-              className="loading w-10"
-            />
-            <b>Generating...</b>
-          </div>
-        ) : null}
+                Begin Your Journey
+              </button>
+              {/*  */}
+              <button
+                className="btn-gradient"
+                onClick={() => {
+                  // Cancel
+                  window.location.reload();
+                }}
+              >
+                Go Back
+              </button>
+            </div>
+          ) : null}
+
+          {/* Choices */}
+          {currentMessage.choices && !generating ? (
+            <div className="bottom-20 flex flex-col gap-5">
+              {currentMessage.choices.map((choice, index) => (
+                <div
+                  key={crypto.randomUUID()}
+                  className="gameplay-choice bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm p-3 rounded-xl flex gap-5 cursor-pointer"
+                  onClick={() => {
+                    // Update progress bar
+                    let count = choicesCount + 1;
+                    setChoicesCount(count);
+
+                    // Set the messages state and generate.
+                    let m_messages;
+                    if (count < gameInfo.maxChoices) {
+                      m_messages = [
+                        ...messages,
+                        { role: "user", content: choice },
+                      ];
+                    } else {
+                      m_messages = [
+                        ...messages,
+                        { role: "user", content: `${choice} <end/>` },
+                      ];
+                    }
+                    // Generate a new response to progress through the story
+                    generate(m_messages);
+                  }}
+                >
+                  <b>{index + 1}.</b>
+                  <p>{choice}</p>
+                </div>
+              ))}
+            </div>
+          ) : generating ? (
+            // Loading icon (while generating a new response)
+            <div className="flex items-center gap-5 backdrop-filter backdrop-blur py-5 px-10">
+              {" "}
+              <img
+                src="https://www.svgrepo.com/show/274034/loading.svg"
+                className="loading w-10"
+              />
+              <b>Generating...</b>
+            </div>
+          ) : null}
+        </div>
       </div>
     </div>
   );
