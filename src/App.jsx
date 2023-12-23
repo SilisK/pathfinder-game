@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App bg-secondary">
       <div className="waves"></div>
-      <main className="min-h-screen">
+      <main className="min-h-screen relative z-40">
         <Router>
           <NavBar />
           <Routes>
