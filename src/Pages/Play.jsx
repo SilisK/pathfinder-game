@@ -40,6 +40,7 @@ function Play() {
   };
 
   const handleAdventureClick = (index) => {
+    console.log(43)
     setSelectedAdventure(adventures[index]);
   };
 
