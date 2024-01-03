@@ -1,15 +1,28 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
-// import { waves } from '../Components/waves.js';
+import { useState, useEffect } from "react";
 
+const steps = [
+  {
+    title: "Story Seed",
+    stepClassName: "story-seed",
+  },
+  {
+    title: "AI Processing",
+    stepClassName: "ai-processing",
+  },
+  {
+    title: "User Choice",
+    stepClassName: "user-choice",
+  },
+];
 
 function Home() {
-  const [typewriterText, setTypewriterText] = useState('');
-  const dataText = ["Experience the future of gaming."];
+  const [typewriterText, setTypewriterText] = useState("");
+  const dataText = ["Experience the future of gaming..."];
   useEffect(() => {
+    window.scroll(0, 0);
+
     let currentText = 0;
-    
-    // waves();
 
     function typeWriter(text, i) {
       if (i < text.length) {
@@ -27,48 +40,39 @@ function Home() {
     }
 
     startTextAnimation(currentText);
-    waves();
-  },  []);
-
-  
+  }, []);
 
   return (
-    <div className="text-white max-w-7xl h-screen m-auto flex flex-col items-center justify-center">
-      
-      <h1 className="text-7xl tracking-wider text-center font-bold mb-4 z-40 gradient-text">DYNAMIC <br></br>STORY TELLING</h1>
-      <p className="text-lg tracking-widest mb-16 z-40">{typewriterText}</p>
-      
-      <div className="grid grid-cols-3 gap-11 mb-10 z-40">
-        <div className="flex flex-col items-center">
-          <div className="mb-2">
-            <div className="story-seed"></div>
+    <div className="text-white max-w-7xl min-h-screen py-24 m-auto flex flex-col items-center justify-center">
+      {/* Header message */}
+      <header className="flex flex-col text-center items-center w-11/12 bg-gradient-to-r from-gray-800 p-10 rounded-xl my-16">
+        <h1 className="text-5xl tracking-wider font-bold mb-4 z-40 gradient-text md:text-7xl">
+          DYNAMIC STORY TELLING
+        </h1>
+        <p className="text-lg tracking-widest text-white">{typewriterText}</p>
+      </header>
+      {/* Story Seed, AI Proc... */}
+      <div className="grid grid-flow-col text-center place-items-center gap-5 mb-10 z-40 md:gap-11">
+        {steps.map((step, i) => (
+          <div className="flex flex-col items-center" key={i}>
+            <div className="mb-2">
+              <div className={step.stepClassName}></div>
+            </div>
+            <p className="uppercase text-sm">{step.title}</p>
           </div>
-          <p className="uppercase text-sm">Story Seed</p>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="mb-2">
-            <div className="ai-processing"></div>
-          </div>
-          <p className="uppercase text-sm">Ai Processing</p>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="mb-2">
-            <div className="user-choice"></div>
-          </div>
-          <p className="uppercase text-sm">User Choice</p>
-        </div>
+        ))}
       </div>
-      
-      <div className="flex justify-center gap-8 z-40">
-        <Link to="/login" className="bg-primary text-secondary uppercase font-semibold py-3 px-14 rounded btn-gradient"><span>Login</span></Link>
-        <Link to="/play" className="bg-primary text-secondary uppercase font-semibold py-3 px-8 rounded btn-gradient"><span>Play as Guest</span></Link>
+      {/* Links (Login + Play) */}
+      <div className="flex flex-col items-center justify-center gap-8 z-40 md:flex-row">
+        <Link to="/login">
+          <button className="btn-gradient">Login</button>
+        </Link>
+        <Link to="/play">
+          <button className="btn-gradient">Play as guest</button>
+        </Link>
       </div>
-
-      <div className="waves"></div>
     </div>
   );
 }
 
 export default Home;
-
-

@@ -1,4 +1,3 @@
-
 const waves = () => {
   class ShaderProgram {
     constructor(holder, options = {}) {
@@ -557,4 +556,4 @@ const waves = () => {
   });
 };
 
-export {waves};
+export { waves };
