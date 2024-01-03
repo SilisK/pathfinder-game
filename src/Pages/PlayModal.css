@@ -50,7 +50,9 @@
 }
 
 
-
+.modal-text {
+  font-size: 20px;
+}
 /* .play-page {
   transition: all 1.2s cubic-bezier(.49,-0.16,.62,1.33);
 } */

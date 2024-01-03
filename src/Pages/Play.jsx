@@ -66,6 +66,7 @@ function Play() {
             How to Play
           </h3>
           <div className="modal-icon"></div>
+          <p className="modal-text">Once you begin the game, you will have a scenario with three options presented to you. Make a choice and the game will respond with an outcome that will change the story and provide new scenarios and new choices.</p>
           {/* content */}
           <button
             onClick={handleCloseModal}
