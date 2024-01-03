@@ -15,6 +15,7 @@ export default function Gameplay({ gameInfo }) {
   // We set the generating state to tell JSX that we are loading a response
   const [generating, setGenerating] = useState(false);
   async function generate(m_messages) {
+    // console.log(17)
     setGenerating(true);
 
     // Returns a story node with an image url

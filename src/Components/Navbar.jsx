@@ -7,7 +7,7 @@ function NavBar() {
   const [navToggled, setNavToggled] = useState(false);
 
   return (
-    <nav className="w-screen bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-md flex flex-col items-center justify-between p-2 text-white fixed z-50 md:flex-row">
+    <nav className="w-screen backdrop-filter backdrop-blur-md flex flex-col items-center justify-between p-2 text-white fixed z-50 md:flex-row">
       {/* Logo */}
       <div className="flex items-center justify-between w-full">
         <Link to="/" className="flex items-center sm:text-xl">

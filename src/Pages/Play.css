@@ -1,20 +1,135 @@
-.adventure-preview {
-    width: 400px;
+/* .adventure-preview {
+    width: 300px;
     height: 400px;
     border: 4px solid white;
     border-radius: 8px;
     position: relative;
     transition: 0.15s ease-in-out;
+} */
+
+
+.adventure-preview {
+  height: 400px;
+  width: 300px;
+  background-color: #001d73;
+  position: relative;
+  overflow: hidden;
 }
 
-.adventure-preview:hover {
-    box-shadow: 0px 0px 25px white;
+.adventure-preview:before {
+  height: 600px;
+  width: 600px;
+  background: conic-gradient(rgb(130,202,255) 20deg, transparent 120deg);
+  transform-origin: center;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: spin 4s linear infinite;
 }
+
+.adventure-preview:after {
+  height: 600px;
+  width: 600px;
+  background-color: #001d73;
+  content: "";
+  position: absolute;
+  /* top: calc(50% - 70px); */
+  left: 50%;
+  transform: translate(-50%);
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+.adventure-preview:hover {
+  height: 400px;
+  width: 300px;
+  background-color: #359cfc;
+  position: relative;
+  overflow: hidden;
+}
+
+.adventure-preview:hover:before {
+  height: 600px;
+  width: 600px;
+  background: conic-gradient(rgb(75, 10, 252) 20deg, transparent 120deg);
+  transform-origin: center;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: spin 4s linear infinite;
+}
+
+.adventure-preview:hover:after {
+  height: 600px;
+  width: 600px;
+  background: linear-gradient(-30deg, #5746dcfb, #45b1fe);
+  content: "";
+  position: absolute;
+  /* top: calc(50% - 70px); */
+  left: 50%;
+  transform: translate(-50%);
+}
+
+
+.adventure-preview img {
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  padding: 4px;
+  transition: transform 0.3s ease-in-out;
+  /* padding: 4px 5px 4px 5px; */
+
+}
+
+.adventure-preview img:hover {
+  transform: scale(1.1);
+}
+.adventure-preview:hover {
+  box-shadow: 0px 0px 15px #82caff;
+  border: 2px solid #5746dcfb;
+}
+
+
+
+
+
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+
+
+
+
 
 .adventure-info {
     position: absolute;
     bottom: 0;
 }
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 500px) {
     .adventure-preview {
@@ -29,3 +144,70 @@
         height: 200px;
     }
 }
+
+
+
+
+
+
+
+
+/* ===Modal=== */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.728);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+  
+  .modal-content {
+    /* background-color: #174da5fb; */
+    background: linear-gradient(-30deg, #174da5fb, #45b1fe);
+    padding: 160px 600px 160px 600px;
+    border-radius: 0.5rem;
+    transform: scale(0.7);
+    opacity: 0.95;
+  }
+  
+  .modal-hidden {
+    visibility: hidden; 
+    opacity: 0;
+    transform: scale(0.5) ;
+    transition: visibility 0s linear 0.5s, 
+                opacity 0.5s ease-in-out, 
+                transform 0.5s ease-in-out;
+  }
+  
+  .modal-visible {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1) ; 
+    transition: visibility 0s linear 0s, 
+                opacity 0.5s ease-in-out, 
+                transform 0.5s ease-in-out;
+  }
+  
+  
+  .modal-icon {
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    background-image: url(../Image/choose.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  
+  .modal-text {
+    font-size: 24px;
+  }
+  /* .play-page {
+    transition: all 1.2s cubic-bezier(.49,-0.16,.62,1.33);
+  } */

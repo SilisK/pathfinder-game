@@ -12,7 +12,7 @@ import Login from "./Pages/Login";
 import Play from "./Pages/Play";
 
 import "./App.css";
-import Footer from "./Components/Footer";
+// import Footer from "./Components/Footer";
 
 function App() {
   useEffect(() => {
@@ -31,7 +31,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/play" element={<Play />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       </main>
     </div>
