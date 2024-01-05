@@ -8,10 +8,12 @@ import NavBar from "./Components/Navbar";
 // PAGES
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import Login from "./Pages/Login";
+import Login from "./Components/Login";
 import Play from "./Pages/Play";
 
 import "./App.css";
+import Signup from "./Components/SignUp";
+import Reset from "./Components/Reset";
 // import Footer from "./Components/Footer";
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/reset" element={<Reset />} />
             <Route path="/play" element={<Play />} />
           </Routes>
           {/* <Footer /> */}

@@ -7,7 +7,7 @@ const team_members = [
     name: "Berlin Rivas",
     avatarClassName: "berlin-avatar",
     github: "https://github.com/BerlinRivas",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/berlinrivas",
   },
   {
     name: "Frantz-Sebastien Mathias",
