@@ -1,41 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase";
-import { Link, useNavigate } from "react-router-dom";
-import "./Auth.css";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './firebase';
+import { useAuth } from '../Components/AuthContext';
+import './Auth.css';
 
-export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
-  const signIn = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      console.log(userCredential.user);
-      setEmail("");
-      setPassword("");
-      setError("");
-      navigate("/");
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      setEmail('');
+      setPassword('');
+      setError('');
+      login(user);
+      navigate('/');
     } catch (error) {
       console.error(error);
-      setError("Wrong password. Please try again.");
+      setError('Wrong password. Please try again.');
     }
   };
 
   const handleReset = () => {
-    navigate("/reset");
+    navigate('/reset');
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    setError("");
+    setError('');
   };
 
   useEffect(() => {
@@ -57,7 +58,7 @@ export default function Login() {
           </div>
           <div className="form-content">
             <h2>LOGIN</h2>
-            <form action="#" onSubmit={signIn}>
+            <form action="#" onSubmit={handleLogin}>
               <div className="input-field">
                 <input
                   type="text"
@@ -91,4 +92,7 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+
+export default Login;
+
