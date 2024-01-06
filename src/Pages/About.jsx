@@ -36,18 +36,28 @@ function About() {
 
   return (
     <div className="text-white max-w-7xl m-auto py-24 min-h-screen flex flex-col items-center justify-center">
-      <div className="w-11/12 mb-24 z-10 md:w-3/5">
+      <div className="w-11/12 mb-24 z-10">
         <h2 className="text-4xl mb-4 tracking-wider">
-          What is <span className="text-blue-300">PATHFINDER</span> Exactly
+          What is <span className="text-blue-300">PATHFINDER</span> Exactly?
         </h2>
         <p className="leading-relaxed text-base">
-          PathFinder is a gaming web app that uses ChatGPT and Dall-E to create
-          dynamic story-telling experiences.
-          <br></br>
-          <br></br>
-          Through the power of AI, we seek to solve the problem of statically
-          programmed scenarios in games. Every decision the player makes can
-          change the trajectory of the story.
+          Pathfinder is a gaming web app that uses ChatGPT and Dall-E to create
+          dynamic story-telling experiences. Through the power of AI, we seek to
+          solve the problem of statically programmed scenarios in games. Every
+          decision the player makes can change the trajectory of the story.
+        </p>
+      </div>
+      <div className="w-11/12 mb-24 z-10">
+        <h2 className="text-4xl mb-4 tracking-wider">
+          The <span className="text-blue-300">FUTURE</span> of Gaming.
+        </h2>
+        <p className="leading-relaxed text-base">
+          As we pioneer the evolution of storytelling in gaming, Pathfinder
+          envisions a future where narratives redefine player engagement. By
+          harnessing the adaptability of ChatGPT, we empower gamers to become
+          co-authors of their unique adventures, setting the stage for a
+          revolution in personalized storytelling that transcends the boundaries
+          of traditional narratives in video games.
         </p>
       </div>
 

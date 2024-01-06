@@ -155,30 +155,26 @@
 /* ===Modal=== */
 .modal-backdrop {
     position: fixed;
+    width: 100vw;
+    height: 100vh;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.728);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: grid;
+    place-items: center;
     z-index: 50;
+    overflow-y: scroll;
+    padding: 16px;
   }
   
   .modal-content {
-    /* background-color: #174da5fb; */
     background: linear-gradient(-30deg, #174da5fb, #45b1fe);
-    padding: 160px 600px 160px 600px;
-    border-radius: 0.5rem;
-    transform: scale(0.7);
-    opacity: 0.95;
+    display: grid;
+    place-items: center;
   }
   
   .modal-hidden {
     visibility: hidden; 
     opacity: 0;
-    transform: scale(0.5) ;
     transition: visibility 0s linear 0.5s, 
                 opacity 0.5s ease-in-out, 
                 transform 0.5s ease-in-out;
@@ -187,7 +183,6 @@
   .modal-visible {
     visibility: visible;
     opacity: 1;
-    transform: scale(1) ; 
     transition: visibility 0s linear 0s, 
                 opacity 0.5s ease-in-out, 
                 transform 0.5s ease-in-out;
@@ -196,17 +191,13 @@
   
   .modal-icon {
     margin: auto;
-    width: 500px;
-    height: 500px;
-    background-image: url(../Image/choose.png);
-    background-size: 90%;
-    background-repeat: no-repeat;
-    background-position: center;
+    max-width: 55%;
+    width: 100%;
   }
   
   
   .modal-text {
-    font-size: 24px;
+    max-width: 550px;
   }
   /* .play-page {
     transition: all 1.2s cubic-bezier(.49,-0.16,.62,1.33);

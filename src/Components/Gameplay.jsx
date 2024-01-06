@@ -11,6 +11,8 @@ export default function Gameplay({ gameInfo }) {
   ]);
   const [story, setStory] = useState([]);
   const [currentMessage, setCurrentMessage] = useState({});
+  const [textShown, setTextShown] = useState(true);
+  const [currentFocusedNode, setCurrentFocusedNode] = useState();
 
   // We set the generating state to tell JSX that we are loading a response
   const [generating, setGenerating] = useState(false);
@@ -23,22 +25,24 @@ export default function Gameplay({ gameInfo }) {
 
     console.log(node);
 
+    // Only needed for the very first request
+    if (!initialized && !node.error) setInitialized(true);
+
     // This is so players can view their entire story and go back to previous choices
     // It might be a good idea to monetize this feature
-    setStory([...story, node]);
+    const updatedStory = [...story, node];
+    setCurrentFocusedNode(updatedStory.length - 1);
+    setStory(updatedStory);
 
     // This is either a story node or an error
     setCurrentMessage(node);
-
-    // Only needed for the very first request
-    if (!initialized && !node.error) setInitialized(true);
 
     setGenerating(false);
   }
 
   return (
     <div className="grid place-items-center min-h-screen py-16 bg-black bg-opacity-40 backdrop-filter backdrop-blur">
-      <div className="w-full grid place-items-center gameplay-container">
+      <div className="w-full flex flex-col place-items-center gameplay-container">
         {/* Progress Bar */}
         <div className="progress-bar flex gap-5 my-10 w-11/12">
           {/* Text Percentage */}
@@ -53,17 +57,59 @@ export default function Gameplay({ gameInfo }) {
               }}
               className="progress-fill bg-white"
             ></div>
-            {/* Story Nodes, allows players to revisit previous choices */}
-            <div></div>
           </div>
+        </div>
+        {/* Story Nodes, allows players to revisit previous choices */}
+        <div className="story-scrollview w-full my-2 p-3 grid grid-flow-col justify-start overflow-x-scroll gap-11">
+          {story.map((node, i) => (
+            <p
+              className={`w-max cursor-pointer ${
+                currentFocusedNode === i ? "text-yellow-400" : "text-white"
+              }
+              `}
+              key={crypto.randomUUID()}
+              onClick={() => {
+                setCurrentFocusedNode(i);
+                setCurrentMessage(story[i]);
+              }}
+            >
+              <b>{node.end ? "Ending: " : i == 0 ? "Beginning: " : i + ". "}</b>
+              <span className="font-light">
+                {node.plot
+                  ? node.plot.substring(0, 12) + "..."
+                  : node.end
+                  ? node.end.substring(0, 26) + "..."
+                  : null}
+              </span>
+            </p>
+          ))}
+        </div>
+
+        {/* Control panel (Toggle text, audio) */}
+        <div className="w-full flex p-3 md:p-0">
+          <button
+            className="btn-gradient absolute my-2 flex items-center gap-5"
+            onClick={() => setTextShown(!textShown)}
+          >
+            <img
+              src={
+                textShown
+                  ? "https://www.svgrepo.com/show/474227/eye-open.svg"
+                  : "https://www.svgrepo.com/show/474231/eye-close.svg"
+              }
+              className="w-10"
+            />
+            {textShown ? "Hide" : "Show"} text
+          </button>
         </div>
 
         {/* Seed Info and Image */}
         <div
-          className="gameplay-screen px-5 rounded w-full flex flex-col items-center justify-end pb-10 gap-11"
+          className="gameplay-screen px-5 rounded flex flex-col items-center justify-end pb-10 gap-11 w-screen md:w-full"
           style={{
             backgroundPosition: "center",
             backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
             backgroundImage: `url(${
               currentMessage.image_url
                 ? currentMessage.image_url
@@ -72,20 +118,28 @@ export default function Gameplay({ gameInfo }) {
           }}
         >
           {!initialized ? (
-            <div className="rounded bg-gray-700 bg-opacity-10 backdrop-filter backdrop-blur px-10">
-              <h1 className="text-5xl font-bold my-5 text-center">
-                {gameInfo.title}
-              </h1>
-            </div>
+            <h1 className="text-5xl font-bold my-5 text-center filter drop-shadow-md">
+              {gameInfo.title}
+            </h1>
           ) : null}
 
           {/* Current Scenario in the story */}
-          <div className="bg-gray-700 bg-opacity-10 backdrop-filter backdrop-blur p-3">
-            {currentMessage.plot
-              ? currentMessage.plot
-              : currentMessage.end
-              ? "Conclusion: " + currentMessage.end
-              : gameInfo.plot}
+          <div
+            className={`${
+              textShown
+                ? "bg-gray-700 bg-opacity-10 backdrop-filter backdrop-blur-sm rounded-xl"
+                : ""
+            } p-3 relative`}
+          >
+            {textShown ? (
+              <div>
+                {currentMessage.plot
+                  ? currentMessage.plot
+                  : currentMessage.end
+                  ? currentMessage.end
+                  : gameInfo.plot}
+              </div>
+            ) : null}
           </div>
 
           {/* Initialize the story, this must be successful at least once */}
@@ -119,40 +173,42 @@ export default function Gameplay({ gameInfo }) {
           {/* Choices */}
           {currentMessage.choices && !generating ? (
             <div className="bottom-20 flex flex-col gap-5">
-              {currentMessage.choices.map((choice, index) => (
-                <div
-                  key={crypto.randomUUID()}
-                  className="gameplay-choice bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm p-3 rounded-xl flex gap-5 cursor-pointer"
-                  onClick={() => {
-                    // Update progress bar
-                    let count = choicesCount + 1;
-                    setChoicesCount(count);
+              {currentFocusedNode === story.length - 1
+                ? currentMessage.choices.map((choice, index) => (
+                    <div
+                      key={crypto.randomUUID()}
+                      className="gameplay-choice bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm p-3 rounded-xl flex gap-5 cursor-pointer"
+                      onClick={() => {
+                        // Update progress bar
+                        let count = choicesCount + 1;
+                        setChoicesCount(count);
 
-                    // Set the messages state and generate.
-                    let m_messages;
-                    if (count < gameInfo.maxChoices) {
-                      m_messages = [
-                        ...messages,
-                        { role: "user", content: choice },
-                      ];
-                    } else {
-                      m_messages = [
-                        ...messages,
-                        { role: "user", content: `${choice} <end/>` },
-                      ];
-                    }
-                    // Generate a new response to progress through the story
-                    generate(m_messages);
-                  }}
-                >
-                  <b>{index + 1}.</b>
-                  <p>{choice}</p>
-                </div>
-              ))}
+                        // Set the messages state and generate.
+                        let m_messages;
+                        if (count < gameInfo.maxChoices) {
+                          m_messages = [
+                            ...messages,
+                            { role: "user", content: choice },
+                          ];
+                        } else {
+                          m_messages = [
+                            ...messages,
+                            { role: "user", content: `${choice} <end/>` },
+                          ];
+                        }
+                        // Generate a new response to progress through the story
+                        generate(m_messages);
+                      }}
+                    >
+                      <b>{index + 1}.</b>
+                      <p>{choice}</p>
+                    </div>
+                  ))
+                : null}
             </div>
           ) : generating ? (
             // Loading icon (while generating a new response)
-            <div className="flex items-center gap-5 backdrop-filter backdrop-blur py-5 px-10">
+            <div className="flex items-center gap-5 backdrop-filter backdrop-blur-sm py-5 px-10">
               {" "}
               <img
                 src="https://www.svgrepo.com/show/274034/loading.svg"
