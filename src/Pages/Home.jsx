@@ -43,13 +43,13 @@ function Home() {
   }, []);
 
   return (
-    <div className="text-white max-w-7xl min-h-screen py-24 m-auto flex flex-col items-center justify-center">
+    <div className="home text-white min-h-screen m-auto flex flex-col items-center justify-center md:p-0">
       {/* Header message */}
-      <header className="flex flex-col text-center items-center w-11/12 bg-gradient-to-r rounded-xl my-16">
+      <header className="flex flex-col text-center items-center w-11/12 mb-16">
         <h1 className="text-5xl tracking-wider font-bold mb-4 z-40 gradient-text md:text-7xl">
           DYNAMIC <br></br>STORY TELLING
         </h1>
-        <p className="text-lg tracking-widest text-white">{typewriterText}</p>
+        <p className="text-lg tracking-widest text-white ">{typewriterText}</p>
       </header>
 
       {/* <h1 className="text-7xl tracking-wider text-center font-bold mb-4 z-40 gradient-text">DYNAMIC <br></br>STORY TELLING</h1>

@@ -1,6 +1,6 @@
 // DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // COMPONENTS
 import NavBar from "./Components/Navbar";

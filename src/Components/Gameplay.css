@@ -3,6 +3,10 @@
     width: 100%;
 }
 
+.story-scrollview {
+    height: 50px;
+}
+
 .gameplay-screen {
     min-height: 724px;
 }
@@ -13,4 +17,10 @@
 
 .progress-fill {
     height: 25px;
+}
+
+@media screen and (max-width:724px) {
+    .story-scrollview {
+        width: 100vw;
+    }
 }
