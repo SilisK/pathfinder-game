@@ -46,6 +46,9 @@ function NavBar() {
         <Link to="/" className="text-md px-6 py-2 hover-underline">
           Home
         </Link>
+        <Link to="/membership" className="text-md px-6 py-2 hover-underline">
+          Membership
+        </Link>
         <Link to="/about" className="text-md px-6 py-2 hover-underline">
           About
         </Link>

@@ -51,8 +51,8 @@ const Login = () => {
             <div className="grid gap-2 drop-shadow-sm">
               <h2 className="text-3xl font-bold">Welcome Back!</h2>
               <p>
-                Dive into a world of limitless stories – craft your own, engage
-                with others, and embark on a storytelling adventure.
+              
+               Come to Embark on boundless tales and begin an extraordinary storytelling odyssey
               </p>
             </div>
           </div>
