@@ -2,6 +2,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+// Import Bootstrap styles
+
+
 // COMPONENTS
 import NavBar from "./Components/Navbar";
 
@@ -10,6 +13,7 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Login from "./Components/Login";
 import Play from "./Pages/Play";
+import Membership from "./Pages/Membership";
 
 import "./App.css";
 import Signup from "./Components/SignUp";
@@ -29,6 +33,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/membership" element={<Membership/>}/>
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
