@@ -1,0 +1,66 @@
+.membership-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 70px;
+  text-align: center;
+  color: #fff;
+}
+
+.membership-container h1 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.membership-container h1 strong {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.1em;
+  width: 100%;
+}
+
+.card {
+  border: 1px solid #000000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(150, 19, 19, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #000000;
+  padding: 10px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.list-unstyled {
+  list-style: none;
+  padding: 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}

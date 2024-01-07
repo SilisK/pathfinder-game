@@ -7,14 +7,13 @@ export default async function storyNode(m_messages, setMessages) {
   let m_error;
 
   // Generates a valid JSON object in this format:
-  /**
-   * {
-        plot: "",
-        choices: [ "", "", "" ],
-        consumables: [ "", "", "" ],
-        imagePrompt: ""
-     }
-   */
+  // {
+  //    plot: "",
+  //    choices: [ "", "", "" ],
+  //    consumables: [ "", "", "" ],
+  //    imagePrompt: ""
+  // }
+
   const textRequest = await fetch(API_URL + "/response", {
     method: "POST",
     headers: {
@@ -40,11 +39,11 @@ export default async function storyNode(m_messages, setMessages) {
   let m_currentMessage = JSON.parse(textRequest.content);
 
   // Generates a valid JSON object in this format:
-  /**
-   * {
-        content: "https://example.com/image.png"
-     }
-   */
+  // {
+  //   content: "https://example.com/image.png";
+  // }
+
+
   const imageRequest = await fetch(API_URL + "/image", {
     method: "POST",
     headers: {

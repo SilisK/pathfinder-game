@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+.form-popup {
+  position: relative;
+ 
+  max-width: 720px;
+  width: 100%;
+  background: #fff;
+ 
+}
+
+.form-box h2 {
+  text-align: center;
+ 
+}
+
+.form-box .form-content {
+  width: 100%;
+  padding: 35px
+}
+
+form .input-field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+
+form .input-field input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #717171;
+  font-size: 0.95rem;
+  outline: none;
+  border-radius: 3px;
+  padding: 0 15px
+}
+
+form .input-field label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #717171;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) ~ label {
+  transform: translateY(-120%);
+  font-size: 0.7rem;
+  color: #00bcd4;
+}
+
+.input-field input:is(:focus, :valid) {
+  padding: 16px 15px 0;
+}
+
+.input-field input:focus {
+  border-color: #00bcd4
+}
+
+.form-box a {
+  color: #00bcd4;
+  text-decoration: none;
+}
+.form-box a:hover {
+ text-decoration: underline;
+}
+
+form button {
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding:14px 0;
+  border-radius: 3px;
+  margin: 25px 0;
+  color: #fff;
+  background: #00bcd4;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+form button:hover {
+  background: #0097a7;
+}
+
+.form-box .bottom-link {
+  text-align: center;
+}
+
+.form-box :where(.forgot-pass, .policy-text) {
+  display: inline-flex;
+  margin-top: 14px;
+  font-size: 0.95rem;
+}
+
+.form-popup .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #878484;
+  cursor: pointer;
+}
+.login .form-details {
+  position: relative;
+  background: url("https://images.nightcafe.studio/jobs/eSQm9Wec4DqvW2VVFj6A/eSQm9Wec4DqvW2VVFj6A_2x.jpg?tr=w-1600,c-at_max");
+  background-size: cover;
+  background-position: center;
+}
+
+.login .form-details::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1; 
+}
+
+.login .form-details h2,
+.login .form-details p {
+  position: relative; 
+  z-index: 2; 
+  color: #fff; 
+}
+
+.signup .form-details {
+  position: relative;
+  background: url("https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/298112133/original/cf4e9f13f80065b2a070fcf3d9c404a5ed756918/create-a-high-quality-ai-art-according-to-your-need-in-a-day.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.signup .form-details::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1; 
+}
+
+.signup .form-details h2,
+.signup .form-details p {
+  position: relative;
+  z-index: 2; 
+  color: #fff; 
+}
+
+.signup .policy-text {
+  display: flex;
+  align-items: center;
+}
+
+.signup .policy-text input {
+  width: 14px;
+  height: 14px;
+  margin-right: 7px
+}
+
+.signup .form-box {
+  max-width: 330px;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: center;
+  padding: 0 20px;
+}
+.signed-out-container {
+  position: relative;
+}
+
+.signed-out-text {
+  color: #000;
+  font-size: 1rem;
+  position: absolute;
+  left: 1230px;
+  top: -10px; 
+}
+
+.signout-route-btn {
+  background-color: #00bcd4;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  left: 85.5%;
+  top: -70px
+}
+
+
+.reset-form {
+  max-width: 640px;
+  width: 100%;
+  /* min-height: 560px; */
+  background-color: white;
+  padding: 16px;
+  /* border-radius: 16px; */
+}
+
+.reset-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.reset-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #555; 
+}
+
+.reset-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff; 
+  color: #fff; 
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #0056b3; 
+}

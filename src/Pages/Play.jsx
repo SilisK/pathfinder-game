@@ -1,28 +1,9 @@
 import { useState, useEffect } from "react";
-import "./PlayModal.css";
-import Game from "../Components/Game";
+import "./Play.css";
+import Gameplay from "../Components/Gameplay";
 import ChooseAd from "../Components/ChooseAd";
-import great_escape_img from "../assets/image-examples/the-great-escape-variant-2.png";
-import galaxy_edge_img from "../assets/image-examples/on-galaxys-edge-variant-4.png";
-import love_life_img from "../assets/image-examples/the-love-of-my-life-variant-2.png";
-
-const adventures = [
-  {
-    image: great_escape_img,
-    title: "The Great Escape",
-    plot: "You are a wrongfully convicted murderer on death row, awaiting your sentence.",
-  },
-  {
-    image: galaxy_edge_img,
-    title: "On Galaxy's Edge",
-    plot: "You are an intergalactic space traveler who has discovered teleportation technology.",
-  },
-  {
-    image: love_life_img,
-    title: "The Love of My Life",
-    plot: "You have fallen in love with the most wonderful person but there is more to them than meets the eye.",
-  },
-];
+import adventures from "../assets/stories-examples/examples";
+import modal_icon from "../Image/choose.png";
 
 function Play() {
   const [showModal, setShowModal] = useState(false);
@@ -30,34 +11,41 @@ function Play() {
 
   useEffect(() => {
     // Trigger the modal to open after mounting the component
-    setShowModal(true);
-    waves();
+    if (!JSON.parse(localStorage.getItem("how-to-play-initialized"))) {
+      setShowModal(true);
+    }
+    // waves();
   }, []);
 
   const handleCloseModal = () => {
+    localStorage.setItem("how-to-play-initialized", "true");
     setShowModal(false);
     // navigate('/'); // Uncomment to navigate back to home when modal is closed
   };
 
   const handleAdventureClick = (index) => {
+    console.log(43);
     setSelectedAdventure(adventures[index]);
   };
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
-    <div className="text-white max-w-7xl m-auto flex flex-col items-center justify-center h-screen">
-      {/* Choose Your Adventure */}
+    <div className="text-white min-h-screen z-40">
       {!selectedAdventure ? (
         <ChooseAd
           adventures={adventures}
           handleAdventureClick={handleAdventureClick}
+          setShowModal={setShowModal}
         />
-      ) : null}
-
-      {/* Selected Adventure */}
-      {selectedAdventure ? <Game seed={selectedAdventure} /> : null}
+      ) : (
+        <Gameplay gameInfo={{ ...selectedAdventure, maxChoices: 5 }} />
+      )}
 
       <div
-        className={`modal-backdrop ${
+        className={`modal-backdrop backdrop-filter backdrop-blur ${
           showModal ? "modal-visible" : "modal-hidden"
         }`}
       >
@@ -66,18 +54,15 @@ function Play() {
             How to Play
           </h3>
           <div className="modal-icon"></div>
-          <p className="modal-text">Once you begin the game, you will have a scenario with three options presented to you. Make a choice and the game will respond with an outcome that will change the story and provide new scenarios and new choices.</p>
           {/* content */}
           <button
             onClick={handleCloseModal}
-            className="bg-primary text-white uppercase tracking-wider font-semibold py-5 px-56 text-4xl rounded mt-12 btn-left"
+            className="btn-gradient tracking-wider text-4xl rounded my-5 w-full"
           >
             PLAY
           </button>
         </div>
       </div>
-
-      <div className="waves"></div>
     </div>
   );
 }

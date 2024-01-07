@@ -1,8 +1,8 @@
 /* * {
   outline: 1px solid #fff
-} 
+}  */
 
-
-
-
- */
+footer {
+  position: relative;
+  z-index: 40;
+}

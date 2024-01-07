@@ -1,0 +1,54 @@
+.gameplay-container {
+    max-width: 724px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.gameplay-card {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 200px 1fr;   
+}
+
+.story-scrollview {
+    width: 200px;
+}
+
+.story-scrollview li {
+    padding: 16px 0 16px 0;
+}
+.story-scrollview  li:hover {
+    color: #82caff;
+}
+
+.gameplay-screen {
+    min-height: 724px;
+    /* max-width: 724px; */
+    width: 100%;
+}
+
+.gameplay-choice:hover {
+    box-shadow: 1px 1px 10px white;
+}
+
+.progress-fill {
+    height: 25px;
+    background-color: #82caff;
+
+}
+.progress-bar {
+    width: 100%;
+}
+
+
+
+.hide-text img {
+    width: 30px;
+}
+
+
+@media screen and (max-width:724px) {
+    .story-scrollview {
+        width: 100vw;
+    }
+}
