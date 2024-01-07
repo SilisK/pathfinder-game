@@ -27,12 +27,13 @@
 }
 
 .card-header {
-  background-color: #000000;
+  background-color: #0b0606;
   padding: 10px;
 }
 
 .card-body {
   padding: 20px;
+  background-color: rgb(36, 30, 30);
 }
 
 .card-title {
