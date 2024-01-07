@@ -3,30 +3,31 @@
   margin: 0 auto;
   padding: 70px;
   text-align: center;
+  color: #fff;
 }
 
 .membership-container h1 {
   font-size: 2.5rem;
+  color: #fff;
 }
 
 .membership-container h1 strong {
   position: relative;
   display: inline-block;
-
-  padding-bottom: 0.1em; /* Adjust the padding to control the distance between the text and the underline */
+  padding-bottom: 0.1em;
   width: 100%;
 }
 
 .card {
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(150, 19, 19, 0.1);
   margin-bottom: 20px;
 }
 
 .card-header {
-  background-color: #f8f9fa;
+  background-color: #000000;
   padding: 10px;
 }
 
@@ -37,6 +38,7 @@
 .card-title {
   font-size: 2rem;
   margin-bottom: 10px;
+  color: #fff;
 }
 
 .list-unstyled {

@@ -57,7 +57,7 @@ export default function Membership() {
                     <li>Priority email support</li>
                     <li>Help center access</li>
                   </ul>
-                  <button className="btn btn-lg">Buy</button>
+                  <button className="btn btn-lg">Buy Now</button>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function Membership() {
                     <li>Priority email support</li>
                     <li>Help center access</li>
                   </ul>
-                  <button className="btn btn-lg">Buy</button>
+                  <button className="btn btn-lg">Buy Now</button>
                 </div>
               </div>
             </div>
