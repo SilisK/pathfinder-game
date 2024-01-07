@@ -49,7 +49,7 @@ export default function Membership() {
                 </div>
                 <div className="card-body">
                   <h1 className="card-title">
-                    $20 <small className="text-muted fw-light">/mo</small>
+                    $10 <small className="text-muted fw-light">/mo</small>
                   </h1>
                   <ul className="list-unstyled py-3 text-start">
                     <li>Seed Games Access</li>
@@ -68,7 +68,7 @@ export default function Membership() {
                 </div>
                 <div className="card-body">
                   <h1 className="card-title">
-                    $50 <small className="text-muted fw-light">/mo</small>
+                    $25 <small className="text-muted fw-light">/mo</small>
                   </h1>
                   <ul className="list-unstyled py-3 text-start">
                     <li>Seed Games Access</li>
