@@ -26,6 +26,11 @@ function Play() {
   const handleAdventureClick = (index) => {
     console.log(43);
     setSelectedAdventure(adventures[index]);
+
+    if (adventures[index].sound){
+      const audio = new Audio(adventures[index].sound)
+      audio.play()
+    }
   };
 
   useEffect(() => {

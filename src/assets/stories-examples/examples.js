@@ -4,12 +4,15 @@ import love_life_img from "../image-examples/the-love-of-my-life-variant-2.png";
 import city_of_img from "../image-examples/city-of-shadow.png";
 import the_quantum_img from "../image-examples/the-quantum-heist.png";
 
+import escape_sound from "../backgroundMusic/Prison_Break-StringsOfPrisoners-Extended.mp3"
+
 
 const adventures = [
   {
     image: great_escape_img,
     title: "The Great Escape",
     plot: "You are a wrongfully convicted murderer on death row, awaiting your sentence.",
+    sound: escape_sound
   },
   {
     image: galaxy_edge_img,
