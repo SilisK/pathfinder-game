@@ -5,10 +5,10 @@ import { loadStripe } from '@stripe/stripe-js';
 
 export default function Membership() {
   const handlePaymentClick = async e => {
-    const stripe = await loadStripe('pk_live_51OWh05DMdi2VrTPJn8PVegg3Amob5HTfjYlRva62GRmH517YIFUqEnpLeS4iitkVOPhD77V0D31WOBMnimPqoAcS00RxpqCE3T')
+    const stripe = await loadStripe('pk_test_51OWh05DMdi2VrTPJlTIxUGzCykeybolCWMaQPb2D8MIgZf0UDG94QTNTSVhWEi2tj8zxlWdblblmTYPaOQJQy18Z0094ers8Pi')
     const { error } = await stripe.redirectToCheckout({
       lineItems: [{
-        price: 'price_1OX12ADMdi2VrTPJjcL3pEfY',
+        price: 'price_1OWpHYDMdi2VrTPJE6fhjzLP',
         quantity: 1
       }],
       mode: 'subscription',
@@ -19,10 +19,10 @@ export default function Membership() {
   }
 
   const secondHandlePaymentClick = async e => {
-    const stripe = await loadStripe('pk_live_51OWh05DMdi2VrTPJn8PVegg3Amob5HTfjYlRva62GRmH517YIFUqEnpLeS4iitkVOPhD77V0D31WOBMnimPqoAcS00RxpqCE3T')
+    const stripe = await loadStripe('pk_test_51OWh05DMdi2VrTPJlTIxUGzCykeybolCWMaQPb2D8MIgZf0UDG94QTNTSVhWEi2tj8zxlWdblblmTYPaOQJQy18Z0094ers8Pi')
     const { error } = await stripe.redirectToCheckout({
       lineItems: [{
-        price: 'price_1OX14IDMdi2VrTPJsBRD56pK',
+        price: 'price_1OWpIlDMdi2VrTPJY3pTKpQh',
         quantity: 1
       }],
       mode: 'subscription',
