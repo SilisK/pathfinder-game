@@ -2,6 +2,7 @@ import { useState } from "react";
 import { systemInstructions } from "../assets/prompt-engineering/prompt-controller";
 import storyNode from "./api";
 import "./Gameplay.css";
+import React, { useEffect } from "react";
 
 export default function Gameplay({ gameInfo }) {
   const [initialized, setInitialized] = useState(false);
@@ -40,12 +41,19 @@ export default function Gameplay({ gameInfo }) {
     setGenerating(false);
   }
 
+  // This useEffect hook will run every time 'choicesCount' changes
+  useEffect(() => {
+    const newProgressPercentage = (choicesCount / gameInfo.maxChoices) * 100;
+    // Updating the CSS variable for progress bar width
+    document.documentElement.style.setProperty('--fill-width', `${newProgressPercentage}%`);
+  }, [choicesCount, gameInfo.maxChoices]); // Dependencies array
+
   return (
     <div className="grid place-items-center min-h-screen py-16 bg-black bg-opacity-40 backdrop-filter backdrop-blur">
       <div className="w-full flex flex-col place-items-center gameplay-container">
         
         {/* Progress Bar */}
-        <div className="progress-bar flex gap-5 my-10 w-11/12">
+        <div className="progress-bar flex gap-5 mt-6 mb-4 w-11/12">
           {/* Text Percentage */}
           <p className="w-min">
             {((choicesCount / gameInfo.maxChoices) * 100).toFixed()}%
@@ -66,50 +74,6 @@ export default function Gameplay({ gameInfo }) {
         {/* --Revisit previous choices-- and --Seed Info and Image--*/}
         <div className="gameplay-card w-full">
 
-          {/* Story Nodes, allows players to revisit previous choices */}
-          <ul className="story-scrollview my-2 p-3 overflow-x-scroll flex flex-col ">
-
-            {story.map((node, i) => (
-              <li
-                className={`w-full cursor-pointer ${
-                  currentFocusedNode === i ? "text-primary" : "text-white"
-                }
-                `}
-                key={crypto.randomUUID()}
-                onClick={() => {
-                  setCurrentFocusedNode(i);
-                  setCurrentMessage(story[i]);
-                }}
-              >
-              <b>{node.end ? "Ending: " : i == 0 ? "Beginning: " : i + ". "}</b>
-              <span className="font-light">
-                {node.plot
-                  ? node.plot.substring(0, 18) + "..."
-                  : node.end
-                  ? node.end.substring(0, 26) + "..."
-                  : null}
-              </span>
-              </li>
-            ))}
-
-              {/* Control panel (Toggle text, audio) */}
-              <div className="hide-text flex md:p-0">
-                <button
-                  className="btn-gradient absolute my-2 flex items-center w-full text-md"
-                  onClick={() => setTextShown(!textShown)}
-                >
-                  <img
-                    src={
-                      textShown
-                        ? "https://www.svgrepo.com/show/474227/eye-open.svg"
-                        : "https://www.svgrepo.com/show/474231/eye-close.svg"
-                    }
-                    className="mr-2"
-                  />
-                  {textShown ? "Hide" : "Show"} Text
-                </button>
-              </div>
-          </ul>
                     
           {/* Seed Info and Image */}
           <div
@@ -125,6 +89,14 @@ export default function Gameplay({ gameInfo }) {
               })`,
             }}
           >
+
+            {/* Plot Substring Display */}
+            {/* {textShown && (
+              <div className="plot-substring">
+                {currentMessage.plot ? currentMessage.plot.substring(0, 50) + "..." : ""}
+              </div>
+            )} */}
+            
             {!initialized ? (
               <h1 className="text-5xl font-bold my-5 text-center filter drop-shadow-md">
                 {gameInfo.title}
@@ -135,12 +107,12 @@ export default function Gameplay({ gameInfo }) {
             <div
               className={`${
                 textShown
-                  ? "bg-gray-700 bg-opacity-10 backdrop-filter backdrop-blur-sm rounded-xl"
+                  ? "backdrop-blur-sm rounded-xl"
                   : ""
               } p-3 relative`}
             >
               {textShown ? (
-                <div>
+                <div className="current-scenario">
                   {currentMessage.plot
                     ? currentMessage.plot
                     : currentMessage.end
@@ -148,6 +120,26 @@ export default function Gameplay({ gameInfo }) {
                     : gameInfo.plot}
                 </div>
               ) : null}
+              {/* Control panel (Toggle text, audio) */}
+              {/* <div className="hide-text flex items-center md:p-0"> */}
+              <div className="hide-text flex justify-center items-center mt-2">
+                <button
+                  // className="btn-gradient absolute my-2 flex items-center w-full text-md"
+                  className="my-2 text-md"
+                  onClick={() => setTextShown(!textShown)}
+                >
+                  <img
+                    src={
+                      textShown
+                        ? "https://www.svgrepo.com/show/474227/eye-open.svg"
+                        : "https://www.svgrepo.com/show/474231/eye-close.svg"
+                    }
+                    className="mr-2"
+                  />
+                  {/* {textShown ? "Hide" : "Show"} Text */}
+                </button>
+              </div>
+
             </div>
 
             {/* Initialize the story, this must be successful at least once */}
@@ -216,17 +208,45 @@ export default function Gameplay({ gameInfo }) {
               </div>
             ) : generating ? (
               // Loading icon (while generating a new response)
-              <div className="flex items-center gap-5 backdrop-filter backdrop-blur-sm py-5 px-10">
+              <div className="generating-container flex items-center gap-5 backdrop-filter backdrop-blur-sm py-5 px-10">
                 {" "}
                 <img
                   src="https://www.svgrepo.com/show/274034/loading.svg"
                   className="loading w-10"
                 />
-                <b>Generating...</b>
+                <b className="generating-text">Generating...</b>
               </div>
             ) : null}
           </div>
+          
+          {/* Story Nodes, allows players to revisit previous choices */}
+          <ul className="story-scrollview overflow-x-scroll flex text-center justify-between">
 
+            {story.map((node, i) => (
+              <li
+                className={`w-full cursor-pointer bg-primary ${
+                  currentFocusedNode === i ? "text-primary active" : "text-white"
+                }
+                `}
+                key={crypto.randomUUID()}
+                onClick={() => {
+                  setCurrentFocusedNode(i);
+                  setCurrentMessage(story[i]);
+                }}
+                >
+                <b>{node.end ? "Ending" : i == 0 ? "Beginning" : i }</b>
+                <span className="font-light">
+                  {/* {node.plot
+                    ? node.plot.substring(0, 18) + "..."
+                    : node.end
+                    ? node.end.substring(0, 26) + "..."
+                    : null} */}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+    
         </div>
 
 

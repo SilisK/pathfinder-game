@@ -1,4 +1,5 @@
 function ChooseAd({ handleAdventureClick, adventures, setShowModal }) {
+  
   return (
     <div className="w-full min-h-screen grid place-items-center text-center py-24 gap-11">
       <div className="flex gap-2 items-center text-center px-5">

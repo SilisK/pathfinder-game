@@ -50,14 +50,14 @@ function Play() {
         }`}
       >
         <div className="modal-content ">
-          <h3 className="text-white text-7xl mb-5 text-center uppercase tracking-wider">
+          <h3 className="text-white text-7xl mb-5 text-center uppercase tracking-wider font-bold">
             How to Play
           </h3>
           <div className="modal-icon"></div>
-          {/* content */}
+          <p className="modal-text">Once you begin the game, you will have a scenario with three options presented to you. <br></br>Make a choice and the game will respond with an outcome that will change the story and provide new scenarios and new choices.</p>
           <button
             onClick={handleCloseModal}
-            className="btn-gradient tracking-wider text-4xl rounded my-5 w-full"
+            className="btn-gradient tracking-wider text-4xl rounded my-5 w-full p-4"
           >
             PLAY
           </button>
