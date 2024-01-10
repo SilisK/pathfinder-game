@@ -12,8 +12,8 @@ export default function Membership() {
         quantity: 1
       }],
       mode: 'subscription',
-      successUrl: 'http://localhost:5173',
-      cancelUrl: 'http://localhost:5173/cancel'
+      successUrl: 'pathfinder-game.netlify.app',
+      cancelUrl: 'pathfinder-game.netlify.app/cancel'
     })
     console.log(error);
   }
@@ -26,8 +26,8 @@ export default function Membership() {
         quantity: 1
       }],
       mode: 'subscription',
-      successUrl: 'http://localhost:5173',
-      cancelUrl: 'http://localhost:5173/cancel'
+      successUrl: 'pathfinder-game.netlify.app',
+      cancelUrl: 'pathfinder-game.netlify.app/cancel'
     })
   }
 
