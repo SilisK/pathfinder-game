@@ -203,10 +203,11 @@
     transition: all 1.2s cubic-bezier(.49,-0.16,.62,1.33);
   } */
 
-  /* Initial style for the icon */
+
+  /* Initial style for the icon from line 207 to line 217 */
 .icon {
   /* Other styles for the icon here */
-  opacity: 0.2; /* Set initial opacity to 20% */
+  opacity: 0.4; /* Set initial opacity to 20% */
   transition: opacity 0.3s; /* Smooth transition effect */
 }
 
