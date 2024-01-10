@@ -13,11 +13,11 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
   }
   
-  h1 {
+  .cancel-content h1 {
     color: #333; /* Set a dark text color */
   }
   
-  p {
+  .cancel-content p {
     color: #555; /* Set a slightly lighter text color */
     margin-bottom: 20px;
   }
