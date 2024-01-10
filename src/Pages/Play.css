@@ -202,3 +202,15 @@
   /* .play-page {
     transition: all 1.2s cubic-bezier(.49,-0.16,.62,1.33);
   } */
+
+  /* Initial style for the icon */
+.icon {
+  /* Other styles for the icon here */
+  opacity: 0.2; /* Set initial opacity to 20% */
+  transition: opacity 0.3s; /* Smooth transition effect */
+}
+
+/* Hover effect */
+.icon:hover {
+  opacity: 1; /* Set opacity to 100% on hover */
+}
