@@ -1,0 +1,71 @@
+/* Center the form on the screen */
+.support-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Set minimum height to occupy the full viewport height */
+    margin: 0;
+    padding: 80px;
+    /* background-color: #ffffff; */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Other styles... */
+  
+  /* Improve label styling for better visibility */
+  label {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Enhance input and textarea styling for better readability */
+  input,
+  textarea {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    width: 60%;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Allow vertical resizing of the textarea */
+  textarea {
+    resize: vertical;
+  }
+  
+  /* Highlight border color on focus for better user feedback */
+  input:focus,
+  textarea:focus {
+    border-color: #4c95af;
+  }
+  
+  /* Add a subtle box shadow on hover for interactive feedback */
+  input:hover,
+  textarea:hover {
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.2);
+  }
+  
+  /* Style the submit button for a more professional look */
+  .contact-support-btn {
+    padding: 18px;
+    background-color: #4c84af;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Darken the background color on hover for interactive feedback */
+  .contact-support-btn:hover {
+    background-color: #455fa0;
+  }
+  
+  /* Other styles... */
+  
