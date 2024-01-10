@@ -14,8 +14,8 @@ import About from "./Pages/About";
 import Login from "./Components/Login";
 import Play from "./Pages/Play";
 import Membership from "./Pages/Membership";
-import Cancel from './pages/Cancel';
-import Support from './pages/Support'
+import Cancel from './Pages/Cancel';
+import Support from './Pages/Support'
 
 import "./App.css";
 import Signup from "./Components/SignUp";
