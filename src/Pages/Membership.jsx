@@ -80,7 +80,7 @@ export default function Membership() {
                   </h1>
                   <ul className="list-unstyled py-3 text-start">
                     <li>Explore a Vast Array of Exciting Games</li>
-                    <li>Removes ads</li>
+                    <li>Removes Ads</li>
                     <li>Enjoy Priority Email Support for Swift Assistance</li>
                     <li>Access Comprehensive Support Resources in our Help Center</li>
                   </ul>
