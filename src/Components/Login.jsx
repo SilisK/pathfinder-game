@@ -44,7 +44,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-blue-700 to-gray-700 w-full min-h-screen grid place-items-center">
+    <div className="bg-gradient from-blue-700 w-full min-h-screen grid place-items-center">
       <div className="form-popup my-20 md:border-2 md:overflow-hidden md:rounded-xl">
         <div className="form-box login flex flex-col md:flex-row">
           <div className="form-details text-center py-24 px-11 grid place-items-center">
@@ -81,7 +81,7 @@ const Login = () => {
               <Link onClick={handleReset} to="/reset" className="forgot-pass">
                 Forgot password?
               </Link>
-              <button type="submit">Log In</button>
+              <button type="submit" className="btn-gradient">Log In</button>
               <div className="bottom-link">
                 Don't have an account?
                 <Link to="/signup"> Sign Up</Link>

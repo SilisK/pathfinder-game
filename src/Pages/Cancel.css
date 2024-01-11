@@ -1,0 +1,39 @@
+.cancel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .cancel-content {
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #fff; /* Set a white background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  }
+  
+  .cancel-content h1 {
+    color: #333; /* Set a dark text color */
+  }
+  
+  .cancel-content p {
+    color: #555; /* Set a slightly lighter text color */
+    margin-bottom: 20px;
+  }
+  
+  .contact-support-btn {
+    padding: 10px 20px;
+    background-color: #4c9daf;
+    color: #fff; /* Set a white text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-support-btn:hover {
+    background-color: rgb(69, 116, 160); /* Darker green color on hover */
+  }
+  

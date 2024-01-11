@@ -38,7 +38,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-gray-700 to-blue-700 w-full min-h-screen grid place-items-center">
+    <div className="bg-gradient from-gray-700 w-full min-h-screen grid place-items-center">
       <div className="form-popup my-20 md:border-2 md:overflow-hidden md:rounded-xl">
         <div className="form-box signup flex flex-col md:flex-row">
           <div className="form-details text-center py-24 px-11 grid place-items-center">
@@ -84,7 +84,7 @@ const SignUp = () => {
                   <a href="#"> Terms & Conditions</a>
                 </label>
               </div>
-              <button type="submit">Sign Up</button>
+              <button type="submit" className="btn-gradient">Sign Up</button>
               <div className="bottom-link">
                 Already have an account?
                 <Link to="/login"> Login</Link>

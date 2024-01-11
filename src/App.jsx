@@ -14,6 +14,8 @@ import About from "./Pages/About";
 import Login from "./Components/Login";
 import Play from "./Pages/Play";
 import Membership from "./Pages/Membership";
+import Cancel from './Pages/Cancel';
+import Support from './Pages/Support'
 
 import "./App.css";
 import Signup from "./Components/SignUp";
@@ -34,6 +36,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/membership" element={<Membership/>}/>
+            <Route path="/cancel" element={<Cancel/>}/>
+            <Route path="/support" element={<Support/>}/>
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

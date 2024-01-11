@@ -35,8 +35,8 @@ function About() {
   }, []);
 
   return (
-    <div className="text-white max-w-7xl m-auto py-24 min-h-screen flex flex-col items-center justify-center text-center md:text-left">
-      <div className="w-11/12 mb-24 z-10">
+    <div className="text-white max-w-7xl m-auto min-h-screen flex flex-col items-center justify-center text-center md:text-left">
+      <div className="w-11/12 mb-24 mt-20 z-10">
         <h2 className="text-4xl mb-4 tracking-wider">
           What is <span className="text-blue-300">PATHFINDER</span> Exactly?
         </h2>
@@ -78,7 +78,7 @@ function About() {
                   <p className="uppercase text-base">{member.name}</p>
                 </div>
               </div>
-              <section className="flex justify-evenly w-4/6 my-5">
+              <section className="flex justify-evenly w-4/6 my-2">
                 <a
                   className="small-gizmo bg-white rounded-full"
                   href={member.github}
