@@ -1,5 +1,4 @@
 .membership-container {
-  max-width: 600px;
   margin: 0 auto;
   padding: 70px;
   text-align: center;
@@ -22,18 +21,25 @@
   border: 1px solid #000000;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(150, 19, 19, 0.1);
   margin-bottom: 20px;
+  max-width: 500px;
+  width: 100%;
+  min-height: 400px;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 50px 1fr;
 }
 
 .card-header {
-  background-color: #0b0606;
+  background-color: #171717;
   padding: 10px;
 }
 
 .card-body {
   padding: 20px;
-  background-color: rgb(36, 30, 30);
+  background: linear-gradient(to bottom, rgb(38, 38, 38), #171717);
+  display: grid;
+  grid-template-rows: 100px 1fr 75px;
 }
 
 .card-title {
