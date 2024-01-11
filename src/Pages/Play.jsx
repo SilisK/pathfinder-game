@@ -5,9 +5,17 @@ import ChooseAd from "../Components/ChooseAd";
 import adventures from "../assets/stories-examples/examples";
 import modal_icon from "../Image/choose.png";
 
+//Audio Icon imported from backgroundSound
+import audioIcon from "../assets/backgroundMusic/better-sound-logo.svg"
+import muteIcon from "../assets/backgroundMusic/Mute_Icon.svg"
+
 function Play() {
   const [showModal, setShowModal] = useState(false);
   const [selectedAdventure, setSelectedAdventure] = useState();
+
+  //useState for muting and for play/pause audio
+  const [isMuted, setIsMuted] = useState(false)
+  const [audio, setAudio] = useState(null)
 
   useEffect(() => {
     // Trigger the modal to open after mounting the component
@@ -26,11 +34,28 @@ function Play() {
   const handleAdventureClick = (index) => {
     console.log(43);
     setSelectedAdventure(adventures[index]);
+
+    if (adventures[index].sound){
+      //audioElement is the variable that manages the sound element from the adventures array
+      const audioElement = new Audio(adventures[index].sound)
+      setAudio(audioElement)
+      audioElement.play()
+    }
   };
 
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
+
+  //Toggle Function which play/pause the sound
+   function toggleSound() {
+    if (audio && isMuted){
+      audio.play()
+    } else if (audio) {
+      audio.pause()
+    }
+    setIsMuted(!isMuted)
+  }
 
   return (
     <div className="text-white min-h-screen z-40">
@@ -43,6 +68,10 @@ function Play() {
       ) : (
         <Gameplay gameInfo={{ ...selectedAdventure, maxChoices: 5 }} />
       )}
+      {/* Audio icon appearing only when the music plays */}
+      {audio ? (
+        <img className="icon" onClick={toggleSound} src={isMuted? muteIcon : audioIcon}></img>
+      ) : (<></>)}
 
       <div
         className={`modal-backdrop backdrop-filter backdrop-blur ${
