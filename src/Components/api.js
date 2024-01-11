@@ -38,21 +38,27 @@ export default async function storyNode(m_messages, setMessages) {
 
   let m_currentMessage = JSON.parse(textRequest.content);
 
+  // Updating the context for ChatGPT
+  setMessages([...m_messages, textRequest]);
+
+  const node = { ...m_currentMessage };
+
+  return node;
+}
+
+export async function generateImage(prompt, images, setImages) {
   // Generates a valid JSON object in this format:
   // {
   //   content: "https://example.com/image.png";
   // }
-
-
+  let m_error;
   const imageRequest = await fetch(API_URL + "/image", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      content: m_currentMessage.imagePrompt
-        ? m_currentMessage.imagePrompt
-        : m_currentMessage.plot,
+      content: prompt,
     }),
   })
     .then((response) => response.json())
@@ -68,12 +74,7 @@ export default async function storyNode(m_messages, setMessages) {
       error:
         "Something went wrong when trying to generate the image for the story. Please try again.",
     };
+  } else {
+    setImages([...images, imageRequest.content]);
   }
-
-  // Updating the context for ChatGPT
-  setMessages([...m_messages, textRequest]);
-
-  const node = { ...m_currentMessage, image_url: imageRequest.content };
-
-  return node;
 }
