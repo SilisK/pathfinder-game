@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { systemInstructions } from "../assets/prompt-engineering/prompt-controller";
-import storyNode, { generateImage } from "./api";
+import storyNode from "./api";
 import "./Gameplay.css";
 import React, { useEffect } from "react";
 
@@ -39,7 +39,6 @@ export default function Gameplay({ gameInfo }) {
     // This is either a story node or an error
     setCurrentMessage(node);
 
-    generateImage(node.imagePrompt || node.plot, images, setImages);
 
     function finish_callback(){
       setGenerating(false);
