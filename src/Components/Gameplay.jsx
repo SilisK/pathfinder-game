@@ -19,19 +19,19 @@ export default function Gameplay({ gameInfo }) {
   // We set the generating state to tell JSX that we are loading a response
   const [generating, setGenerating] = useState(false);
   async function generate(m_messages) {
-    // console.log(17)
     setGenerating(true);
-
+    
     // Returns a story node with an image url
-    const node = await storyNode(m_messages, setMessages);
+    const node = await storyNode(m_messages, setMessages, setStory, finish_callback);
 
-    console.log(node);
+    
 
     // Only needed for the very first request
     if (!initialized && !node.error) setInitialized(true);
 
     // This is so players can view their entire story and go back to previous choices
     // It might be a good idea to monetize this feature
+    console.log([...story, node]);
     const updatedStory = [...story, node];
     setCurrentFocusedNode(updatedStory.length - 1);
     setStory(updatedStory);
@@ -41,7 +41,9 @@ export default function Gameplay({ gameInfo }) {
 
     generateImage(node.imagePrompt || node.plot, images, setImages);
 
-    setGenerating(false);
+    function finish_callback(){
+      setGenerating(false);
+    }
   }
 
   // This useEffect hook will run every time 'choicesCount' changes

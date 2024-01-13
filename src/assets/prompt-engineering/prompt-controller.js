@@ -17,7 +17,7 @@ export const systemInstructions = {
 
     You must also give me an "Image Prompt" that is 1 sentence long.
 
-    "Image Prompt" is a prompt for AI image generators to visualize the "Plot".
+    "Image Prompt" is a prompt for AI image generators to visualize the "Plot" or the "end".
     
     You must create a descriptive ending when "User" sends you <end/>
     
