@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { systemInstructions } from "../assets/prompt-engineering/prompt-controller";
-import storyNode from "./api";
+import storyNode, { generateImage } from "./api";
 import "./Gameplay.css";
 import React, { useEffect } from "react";
 
@@ -21,6 +21,16 @@ export default function Gameplay({ gameInfo }) {
   async function generate(m_messages) {
     setGenerating(true);
     
+
+    var imagePrompt = "";
+
+    for(let i = m_messages.length -2; i < m_messages.length; i++){
+        if(i === 0) continue;
+        imagePrompt += m_messages[i].content;
+      }
+    generateImage(imagePrompt, images, setImages, finish_callback);
+
+
     // Returns a story node with an image url
     const node = await storyNode(m_messages, setMessages, setStory, finish_callback);
 
@@ -31,16 +41,16 @@ export default function Gameplay({ gameInfo }) {
 
     // This is so players can view their entire story and go back to previous choices
     // It might be a good idea to monetize this feature
-    console.log([...story, node]);
     const updatedStory = [...story, node];
-    setCurrentFocusedNode(updatedStory.length - 1);
     setStory(updatedStory);
 
     // This is either a story node or an error
     setCurrentMessage(node);
 
+    
 
     function finish_callback(){
+      setCurrentFocusedNode(updatedStory.length - 1);
       setGenerating(false);
     }
   }

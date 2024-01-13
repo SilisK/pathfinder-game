@@ -1,4 +1,5 @@
-const API_URL = "https://pathfinder-game-api.onrender.com";
+// const API_URL = "https://pathfinder-game-api.onrender.com";
+const API_URL = "https://pathfinder-game-api-wai.onrender.com";
 
 /**
  * A story node is a portion of the overall story generated from ChatGPT.
@@ -6,43 +7,7 @@ const API_URL = "https://pathfinder-game-api.onrender.com";
 export default async function storyNode(m_messages, setMessages, setStory, finish_callback) {
   try {
     let m_error;
-    // Generates a valid JSON object in this format:
-    // {
-    //   content: "https://example.com/image.png";
-    // }
-    var imagePrompt = "";
-    for(let i = m_messages.length -2; i < m_messages.length; i++){
-      if(i === 0) continue;
-      imagePrompt += m_messages[i].content;
-    }
     
-    // loading image
-    let tempImageUrl = "";
-    
-    fetch(API_URL + "/image", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        content:imagePrompt
-      })
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        
-        setStory(pv => {
-          pv[pv.length-1].image_url = data.content;
-          const story = JSON.parse(JSON.stringify(pv));
-          return story;
-        });
-        if(finish_callback) finish_callback();
-
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
       
     // Generates a valid JSON object in this format:
     // {
@@ -108,7 +73,7 @@ export default async function storyNode(m_messages, setMessages, setStory, finis
 
     // Updating the context for ChatGPT
     setMessages([...m_messages, textRequest]);
-
+    let tempImageUrl = "https://media2.giphy.com/media/RgzryV9nRCMHPVVXPV/giphy.gif?cid=ecf05e47vfyqaob415hcdlmao20nu7jgs9yfigy7ml21s0t5&ep=v1_gifs_search&rid=giphy.gif&ct=g";
     // const node = { ...m_currentMessage, image_url: imageRequest.content };
     const node = { ...m_currentMessage, image_url: tempImageUrl };
 
@@ -118,4 +83,38 @@ export default async function storyNode(m_messages, setMessages, setStory, finis
     return false;
   }
   
+}
+export async function generateImage(prompt, images, setImages, finish_callback) {
+  // Generates a valid JSON object in this format:
+  // {
+  //   content: "https://example.com/image.png";
+  // }
+  let m_error;
+  const imageRequest = await fetch(API_URL + "/image", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      content: prompt,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      m_error = true;
+    });
+
+  if (m_error) {
+    return {
+      error:
+        "Something went wrong when trying to generate the image for the story. Please try again.",
+    };
+  } else {
+    setImages([...images, imageRequest.content]);
+  }
+  if(finish_callback) finish_callback();
+
 }
