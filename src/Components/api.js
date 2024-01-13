@@ -1,5 +1,4 @@
-const API_URL = "http://localhost:3001";
-// const API_URL = "https://pathfinder-game-api.onrender.com";
+const API_URL = "https://pathfinder-game-api.onrender.com";
 
 /**
  * A story node is a portion of the overall story generated from ChatGPT.
