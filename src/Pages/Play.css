@@ -180,7 +180,16 @@
   background-position: center;
 }
   
-  
+
 .modal-text {
   font-size: 24px;
 }
+
+
+  /* Initial style for the audio icon */
+  .icon {
+    /* Other styles for the icon here */
+    opacity: 0.2; /* Set initial opacity to 20% */
+    opacity: 0.4; /* Set initial opacity to 20% */
+    transition: opacity 0.3s; /* Smooth transition effect */
+  }

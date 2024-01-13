@@ -68,12 +68,12 @@ export default async function storyNode(m_messages, setMessages, setStory, finis
         m_error = true;
       });
 
-    if (m_error) {
-      return {
-        error:
-          "Something went wrong when trying to generate text for the story. Please try again.",
-      };
-    }
+  if (m_error) {
+    return {
+      error:
+        "Something went wrong when trying to generate text for the story. Please try again.",
+    };
+  }
 
     
     let m_currentMessage = JSON.parse(textRequest.content);

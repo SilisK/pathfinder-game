@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { systemInstructions } from "../assets/prompt-engineering/prompt-controller";
-import storyNode from "./api";
+import storyNode, { generateImage } from "./api";
 import "./Gameplay.css";
 import React, { useEffect } from "react";
 
@@ -13,7 +13,8 @@ export default function Gameplay({ gameInfo }) {
   const [story, setStory] = useState([]);
   const [currentMessage, setCurrentMessage] = useState({});
   const [textShown, setTextShown] = useState(true);
-  const [currentFocusedNode, setCurrentFocusedNode] = useState();
+  const [currentFocusedNode, setCurrentFocusedNode] = useState(0);
+  const [images, setImages] = useState([]);
 
   // We set the generating state to tell JSX that we are loading a response
   const [generating, setGenerating] = useState(false);
@@ -38,6 +39,8 @@ export default function Gameplay({ gameInfo }) {
     // This is either a story node or an error
     setCurrentMessage(node);
 
+    generateImage(node.imagePrompt || node.plot, images, setImages);
+
     function finish_callback(){
       setGenerating(false);
     }
@@ -47,13 +50,15 @@ export default function Gameplay({ gameInfo }) {
   useEffect(() => {
     const newProgressPercentage = (choicesCount / gameInfo.maxChoices) * 100;
     // Updating the CSS variable for progress bar width
-    document.documentElement.style.setProperty('--fill-width', `${newProgressPercentage}%`);
+    document.documentElement.style.setProperty(
+      "--fill-width",
+      `${newProgressPercentage}%`
+    );
   }, [choicesCount, gameInfo.maxChoices]); // Dependencies array
 
   return (
     <div className="grid place-items-center min-h-screen py-16 bg-black bg-opacity-40 backdrop-filter backdrop-blur">
       <div className="w-full flex flex-col place-items-center gameplay-container">
-        
         {/* Progress Bar */}
         <div className="progress-bar flex gap-5 mt-6 mb-4 w-11/12">
           {/* Text Percentage */}
@@ -71,12 +76,8 @@ export default function Gameplay({ gameInfo }) {
           </div>
         </div>
 
-
-
         {/* --Revisit previous choices-- and --Seed Info and Image--*/}
         <div className="gameplay-card w-full">
-
-                    
           {/* Seed Info and Image */}
           <div
             className="gameplay-screen px-5 rounded flex flex-col items-center justify-end pb-10 gap-11 w-screen md:w-full"
@@ -85,20 +86,19 @@ export default function Gameplay({ gameInfo }) {
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundImage: `url(${
-                currentMessage.image_url
-                  ? currentMessage.image_url
+                images[currentFocusedNode]
+                  ? images[currentFocusedNode]
                   : gameInfo.image
               })`,
             }}
           >
-
             {/* Plot Substring Display */}
             {/* {textShown && (
               <div className="plot-substring">
                 {currentMessage.plot ? currentMessage.plot.substring(0, 50) + "..." : ""}
               </div>
             )} */}
-            
+
             {!initialized ? (
               <h1 className="text-5xl font-bold my-5 text-center filter drop-shadow-md">
                 {gameInfo.title}
@@ -108,9 +108,7 @@ export default function Gameplay({ gameInfo }) {
             {/* Current Scenario in the story */}
             <div
               className={`${
-                textShown
-                  ? "backdrop-blur-sm rounded-xl"
-                  : ""
+                textShown ? "backdrop-blur-sm rounded-xl" : ""
               } p-3 relative`}
             >
               {textShown ? (
@@ -141,7 +139,6 @@ export default function Gameplay({ gameInfo }) {
                   {/* {textShown ? "Hide" : "Show"} Text */}
                 </button>
               </div>
-
             </div>
 
             {/* Initialize the story, this must be successful at least once */}
@@ -220,14 +217,15 @@ export default function Gameplay({ gameInfo }) {
               </div>
             ) : null}
           </div>
-          
+
           {/* Story Nodes, allows players to revisit previous choices */}
           <ul className="story-scrollview overflow-x-scroll flex text-center justify-between">
-
             {story.map((node, i) => (
               <li
                 className={`w-full cursor-pointer bg-primary ${
-                  currentFocusedNode === i ? "text-primary active" : "text-white"
+                  currentFocusedNode === i
+                    ? "text-primary active"
+                    : "text-white"
                 }
                 `}
                 key={crypto.randomUUID()}
@@ -235,8 +233,8 @@ export default function Gameplay({ gameInfo }) {
                   setCurrentFocusedNode(i);
                   setCurrentMessage(story[i]);
                 }}
-                >
-                <b>{node.end ? "Ending" : i == 0 ? "Beginning" : i }</b>
+              >
+                <b>{node.end ? "Ending" : i == 0 ? "Beginning" : i}</b>
                 <span className="font-light">
                   {/* {node.plot
                     ? node.plot.substring(0, 18) + "..."
@@ -247,12 +245,7 @@ export default function Gameplay({ gameInfo }) {
               </li>
             ))}
           </ul>
-
-    
         </div>
-
-
-
       </div>
     </div>
   );
