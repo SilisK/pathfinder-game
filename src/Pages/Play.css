@@ -192,4 +192,14 @@
     opacity: 0.2; /* Set initial opacity to 20% */
     opacity: 0.4; /* Set initial opacity to 20% */
     transition: opacity 0.3s; /* Smooth transition effect */
+    position: fixed;
+    top: 90px;
+    right: 140px;
+    cursor: pointer;
   }
+
+  .icon:hover {
+    opacity: 1;
+  }
+
+

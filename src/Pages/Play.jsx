@@ -39,6 +39,7 @@ function Play() {
       //audioElement is the variable that manages the sound element from the adventures array
       const audioElement = new Audio(adventures[index].sound)
       setAudio(audioElement)
+      // audioElement.loop = true
       audioElement.play()
     }
   };
