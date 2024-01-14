@@ -67,7 +67,7 @@ function Play() {
           setShowModal={setShowModal}
         />
       ) : (
-        <Gameplay gameInfo={{ ...selectedAdventure, maxChoices: 5 }} />
+        <Gameplay gameInfo={{ ...selectedAdventure, maxChoices: 3 }} />
       )}
       {/* Audio icon appearing only when the music plays */}
       {audio ? (
