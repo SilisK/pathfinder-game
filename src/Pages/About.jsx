@@ -62,7 +62,7 @@ function About() {
       </div>
 
       <div className="w-full z-10">
-        <h2 className="text-3xl text-center tracking-wider mb-8">
+        <h2 className="text-3xl text-center tracking-wider mb-8 text-primary">
           MEET THE TEAM
         </h2>
         <div className="grid sm:grid-flow-col sm:overflow-x-scroll px-5 gap-12">
@@ -70,7 +70,7 @@ function About() {
             <div className="flex flex-col items-center" key={i}>
               <div
                 className={
-                  "team-member-banner border-4 rounded overflow-hidden  " +
+                  "team-member-banner rounded overflow-hidden  " +
                   member.avatarClassName
                 }
               >

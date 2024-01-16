@@ -1,71 +1,78 @@
-/* Center the form on the screen */
-.support-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh; /* Set minimum height to occupy the full viewport height */
-    margin: 0;
-    padding: 80px;
-    /* background-color: #ffffff; */
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Other styles... */
-  
-  /* Improve label styling for better visibility */
-  label {
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  /* Enhance input and textarea styling for better readability */
-  input,
-  textarea {
+.support-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  min-height: 100vh;
+}
+
+.support-content {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 500px; 
+  background: linear-gradient(to bottom, #000e3b, #000b2d, #17001f); 
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid  #374afc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+
+input,
+textarea {
+  width: 100%; 
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+
+textarea {
+  resize: vertical;
+  min-height: 100px; 
+}
+
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4a90e2; 
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+
+.contact-support-btn {
+  padding: 15px;
+  width: 100%;
+  background-color: #007bff; 
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+
+.contact-support-btn:hover {
+  background-color: #0069d9;
+}
+
+
+@media (max-width: 600px) {
+  .support-content {
     padding: 15px;
-    margin-bottom: 15px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    width: 60%;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
   }
-  
-  /* Allow vertical resizing of the textarea */
-  textarea {
-    resize: vertical;
-  }
-  
-  /* Highlight border color on focus for better user feedback */
-  input:focus,
-  textarea:focus {
-    border-color: #4c95af;
-  }
-  
-  /* Add a subtle box shadow on hover for interactive feedback */
-  input:hover,
-  textarea:hover {
-    box-shadow: 0 0 15px rgba(76, 175, 80, 0.2);
-  }
-  
-  /* Style the submit button for a more professional look */
-  .contact-support-btn {
-    padding: 18px;
-    background-color: #4c84af;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Darken the background color on hover for interactive feedback */
-  .contact-support-btn:hover {
-    background-color: #455fa0;
-  }
-  
-  /* Other styles... */
-  
+}
+
+

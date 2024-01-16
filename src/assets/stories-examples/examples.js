@@ -1,4 +1,4 @@
-import great_escape_img from "../image-examples/the-great-escape-variant-2.png";
+// import great_escape_img from "../image-examples/the-great-escape-variant-2.png";
 import galaxy_edge_img from "../image-examples/on-galaxys-edge-variant-4.png";
 import love_life_img from "../image-examples/the-love-of-my-life-variant-2.png";
 import city_of_img from "../image-examples/city-of-shadow.png";
@@ -12,12 +12,12 @@ import heist_music from "../backgroundMusic/One-Cosmos-Royalty.mp3"
 
 
 const adventures = [
-  {
-    image: great_escape_img,
-    title: "The Great Escape",
-    plot: "You are a wrongfully convicted murderer on death row, awaiting your sentence.",
-    sound: escape_music
-  },
+  // {
+  //   image: great_escape_img,
+  //   title: "The Great Escape",
+  //   plot: "You are a wrongfully convicted murderer on death row, awaiting your sentence.",
+  //   sound: escape_music
+  // },
   {
     image: galaxy_edge_img,
     title: "On Galaxy's Edge",

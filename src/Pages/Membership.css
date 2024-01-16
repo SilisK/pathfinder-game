@@ -2,49 +2,73 @@
   margin: 0 auto;
   padding: 70px;
   text-align: center;
-  color: #fff;
 }
 
-.membership-container h1 {
+.membership-container h2 {
   font-size: 2.5rem;
-  color: #fff;
+  color: #82caff;
 }
 
-.membership-container h1 strong {
+.membership-container h2 strong {
   position: relative;
   display: inline-block;
   padding-bottom: 0.1em;
   width: 100%;
 }
 
+.membership-container h3 {
+  color: #fff;
+}
+
+.membership-col {
+  width: 900px;
+  margin: auto;
+}
+
 .card {
-  border: 1px solid #000000;
-  border-radius: 8px;
+  border: none;
+  border-radius: 12px; 
   overflow: hidden;
   margin-bottom: 20px;
-  max-width: 500px;
-  width: 100%;
+  max-width: 320px;
   min-height: 400px;
   height: 100%;
   display: grid;
   grid-template-rows: 50px 1fr;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s; 
+  border: 2px solid  #374afc;
+}
+
+.card:hover {
+  transform: translateY(-10px); 
 }
 
 .card-header {
-  background-color: #171717;
-  padding: 10px;
+  /* background-color: #374afc; */
+  background-color: #374afc;
+  padding: 15px;
+}
+
+.card-header h4 {
+  color: #fff;
+  font-size: 20px; 
 }
 
 .card-body {
   padding: 20px;
-  background: linear-gradient(to bottom, rgb(38, 38, 38), #171717);
+  background: linear-gradient(to bottom, #000e3b, #000b2d, #17001f); 
+  /* background: #374afc; */
   display: grid;
-  grid-template-rows: 100px 1fr 75px;
+  grid-template-rows: 100px 1fr auto; 
+  align-items: center;
 }
 
+.card-body li {
+  color: #fff;
+}
 .card-title {
   font-size: 2rem;
-  margin-bottom: 10px;
   color: #fff;
 }
 
@@ -53,21 +77,14 @@
   padding: 0;
 }
 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
-  margin-top: 20px;
-}
 
-.btn:hover {
-  background-color: #0056b3;
+
+
+@media (max-width: 768px) {
+  .membership-container {
+    padding: 40px 20px; 
+  }
+  .card {
+    max-width: 100%;
+  }
 }

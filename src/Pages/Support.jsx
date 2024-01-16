@@ -52,7 +52,7 @@ export default function Support() {
           <label htmlFor="issue">Describe Your Issue:</label>
           <textarea id="issue" name="issue" value={formData.issue} onChange={handleChange} required></textarea>
 
-          <button className="contact-support-btn" type="submit">
+          <button className="btn-gradient" type="submit">
             Submit
           </button>
         </form>

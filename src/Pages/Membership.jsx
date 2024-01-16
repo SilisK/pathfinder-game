@@ -61,33 +61,33 @@ export default function Membership() {
       <header className="grid">
         <div className="align-items-center ms-auto grid">
           <div className="text-center my-4 mx-auto lg:grid place-items-center">
-            <h1>
+            <h2>
               <strong>Membership Pricing</strong>
-            </h1>
-            <p>
+            </h2>
+            <h3>
               Subscribe today for exclusive scripts, tailored experiences, and
               expanded gaming storylines.
-            </p>
+            </h3>
           </div>
         </div>
       </header>
-      <main className="grid place-items-center">
-        <div className="grid gap-11 w-full lg:grid-cols-3">
+      <main className="place-items-center membership-col">
+        <div className="grid w-full lg:grid-cols-3">
           <div className="flex justify-center">
             <div className="card text-center">
               <div className="card-header">
                 <h4 className="fw-normal">Free</h4>
               </div>
               <div className="card-body">
-                <h1 className="card-title">
+                <p className="card-title">
                   $0<small className="text-muted fw-light">/mo</small>
-                </h1>
+                </p>
                 <ul className="flex flex-col gap-3">
                   <li>Access to all Story Examples</li>
                   <li>Assistance from Help Center</li>
                   <li>Create Custom Stories</li>
                 </ul>
-                <button className="btn btn-lg">
+                <button className="btn-gradient">
                   <Link
                     to="/login"
                     style={{ textDecoration: "none", color: "inherit" }}
@@ -104,9 +104,9 @@ export default function Membership() {
                 <h4 className="fw-normal">Pro</h4>
               </div>
               <div className="card-body">
-                <h1 className="card-title">
+                <p className="card-title">
                   $5<small className="text-muted fw-light">/mo</small>
-                </h1>
+                </p>
                 <ul className="flex flex-col gap-3">
                   <li>Access to all Story Examples</li>
                   <li>Assistance from Help Center</li>
@@ -114,7 +114,7 @@ export default function Membership() {
                   <li>Access to Premium Stories</li>
                   <li>Priority Email Support</li>
                 </ul>
-                <button className="btn btn-lg" onClick={handlePaymentClick}>
+                <button className="btn-gradient" onClick={handlePaymentClick}>
                   Buy Now
                 </button>
               </div>
@@ -126,9 +126,9 @@ export default function Membership() {
                 <h4 className="fw-normal">Expert</h4>
               </div>
               <div className="card-body">
-                <h1 className="card-title">
+                <p className="card-title">
                   $10<small className="text-muted fw-light">/mo</small>
-                </h1>
+                </p>
                 <ul className="flex flex-col gap-3">
                   <li>Access to all Story Examples</li>
                   <li>Assistance from Help Center</li>
@@ -138,7 +138,7 @@ export default function Membership() {
                   <li>Removes Ads</li>
                 </ul>
                 <button
-                  className="btn btn-lg"
+                  className="btn-gradient"
                   onClick={secondHandlePaymentClick}
                 >
                   Buy Now
