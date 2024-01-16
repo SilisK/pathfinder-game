@@ -38,8 +38,8 @@ function Play() {
     if (adventures[index].sound){
       //audioElement is the variable that manages the sound element from the adventures array
       const audioElement = new Audio(adventures[index].sound)
+      audioElement.loop = true
       setAudio(audioElement)
-      // audioElement.loop = true
       audioElement.play()
     }
   };
@@ -57,6 +57,7 @@ function Play() {
     }
     setIsMuted(!isMuted)
   }
+  
 
   return (
     <div className="text-white min-h-screen z-40">
