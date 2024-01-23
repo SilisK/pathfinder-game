@@ -60,7 +60,7 @@ export default function Membership() {
     <div className="membership-container min-h-screen grid gap-11">
       <header className="grid">
         <div className="align-items-center ms-auto grid">
-          <div className="text-center my-4 mx-auto lg:grid place-items-center">
+          <div className="text-center my-4 mx-auto place-items-center grid">
             <h2>
               <strong>Membership Pricing</strong>
             </h2>
@@ -71,8 +71,8 @@ export default function Membership() {
           </div>
         </div>
       </header>
-      <main className="place-items-center membership-col">
-        <div className="grid w-full lg:grid-cols-3">
+      <main className="membership-col">
+        <div className="grid w-full gap-11 lg:grid-cols-3">
           <div className="flex justify-center">
             <div className="card text-center">
               <div className="card-header">
