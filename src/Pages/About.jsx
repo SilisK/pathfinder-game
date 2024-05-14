@@ -35,29 +35,29 @@ function About() {
   }, []);
 
   return (
-    <div className="text-white max-w-7xl m-auto min-h-screen flex flex-col items-center justify-center text-center md:text-left">
-      <div className="w-11/12 mb-24 mt-20 z-10">
-        <h2 className="text-4xl mb-4 tracking-wider">
+    <div className="grid place-items-center py-24 text-white min-h-screen">
+      <div className="overflow-hidden rounded-3xl w-11/12 z-10">
+        <h2 className="p-4 text-2xl tracking-wider pb-4">
           What is <span className="text-blue-300">PATHFINDER</span> Exactly?
         </h2>
-        <p className="leading-relaxed text-base">
-          Pathfinder is a gaming web app that uses ChatGPT and Dall-E to create
-          dynamic story-telling experiences. Through the power of AI, we seek to
-          solve the problem of statically programmed scenarios in games. Every
-          decision the player makes can change the trajectory of the story.
+        <p className="p-4 leading-relaxed text-base">
+          Welcome to Pathfinder, a gaming web app where ChatGPT and Dall-E team
+          up to craft engaging story-telling adventures! Say goodbye to
+          predictable game scenarios. With the magic of AI, every choice you
+          make shapes the direction of your unique story.
         </p>
       </div>
-      <div className="w-11/12 mb-24 z-10">
-        <h2 className="text-4xl mb-4 tracking-wider">
+      <div className="overflow-hidden rounded-3xl w-11/12 mb-24 mt-20 z-10">
+        <h2 className="p-4 text-2xl tracking-wider pb-4">
           The <span className="text-blue-300">FUTURE</span> of Gaming.
         </h2>
-        <p className="leading-relaxed text-base">
-          As we pioneer the evolution of storytelling in gaming, Pathfinder
-          envisions a future where narratives redefine player engagement. By
-          harnessing the adaptability of ChatGPT, we empower gamers to become
-          co-authors of their unique adventures, setting the stage for a
-          revolution in personalized storytelling that transcends the boundaries
-          of traditional narratives in video games.
+        <p className="p-4 leading-relaxed text-base">
+          At Pathfinder, we're leading the way in revolutionizing storytelling
+          in gaming. We imagine a future where narratives completely transform
+          player involvement. Using the flexibility of ChatGPT, we empower
+          gamers to co-create their own adventures. Get ready for a new era of
+          personalized storytelling that breaks free from the constraints of
+          traditional video game narratives.
         </p>
       </div>
 

@@ -153,11 +153,6 @@ form button:hover {
   color: #fff; 
 }
 
-.signup .policy-text {
-  display: flex;
-  align-items: center;
-}
-
 .signup .policy-text input {
   width: 14px;
   height: 14px;

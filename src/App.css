@@ -1,5 +1,13 @@
+* {
+  user-select: none;
+}
+
 body {
   background-color: #000b2d;
+}
+
+.home h1 {
+  color: #82caff;
 }
 
 button {
@@ -55,16 +63,16 @@ img {
   transition: 0.25s;
 }
 
-.hover-underline {
+.location-underline {
   position: relative;
   display: inline-block;
-}
-
-.hover-underline:hover {
   color: #82caff;
+  text-decoration: underline;
+  text-underline-offset: 10px;
 }
 
-.hover-underline::after {
+/*
+.location-underline::after {
   content: "";
   position: absolute;
   width: 0;
@@ -75,10 +83,11 @@ img {
   transition: width 0.3s ease, left 0.3s ease;
 }
 
-.hover-underline:hover::after {
+.location-underline:hover::after {
   width: 100%;
   left: 0;
 }
+*/
 
 .gradient-text {
   /* background: linear-gradient(0deg, #174EA5, #45b1fe); */
@@ -225,7 +234,7 @@ img {
 .logo {
   width: 50px;
   height: 50px;
-  background-image: url(./Image/pathfinder-82caff.png);
+  background-image: url(./Image/pathfinder-small.png);
   background-size: 90%;
   background-repeat: no-repeat;
 }

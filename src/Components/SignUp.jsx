@@ -72,14 +72,15 @@ const SignUp = () => {
                 />
                 <label>Create Password</label>
               </div>
-              <div className="policy-text">
+              <div className="policy-text items-center w-full">
                 <input
+                className="m-0"
                   type="checkbox"
                   id="policy"
                   checked={checked}
                   onChange={() => setChecked(!checked)}
                 />
-                <label htmlFor="policy">
+                <label htmlFor="policy" className="w-full m-0">
                   I agree with the
                   <a href="#"> Terms & Conditions</a>
                 </label>

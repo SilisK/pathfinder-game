@@ -1,9 +1,3 @@
-.membership-container {
-  margin: 0 auto;
-  padding: 70px;
-  text-align: center;
-}
-
 .membership-container h2 {
   font-size: 2.5rem;
   color: #82caff;
@@ -18,12 +12,6 @@
 
 .membership-container h3 {
   color: #fff;
-}
-
-.membership-col {
-  max-width: 900px;
-  width: 100%;
-  margin: auto;
 }
 
 .card {
@@ -41,14 +29,18 @@
   border: 2px solid  #374afc;
 }
 
+.card {
+  width: 100%;
+}
+
 .card:hover {
   transform: translateY(-10px); 
 }
 
 .card-header {
-  /* background-color: #374afc; */
+  display: grid;
+  place-items: center;
   background-color: #374afc;
-  padding: 15px;
 }
 
 .card-header h4 {
@@ -59,10 +51,7 @@
 .card-body {
   padding: 20px;
   background: linear-gradient(to bottom, #000e3b, #000b2d, #17001f); 
-  /* background: #374afc; */
   display: grid;
-  grid-template-rows: 100px 1fr auto; 
-  align-items: center;
 }
 
 .card-body li {
@@ -73,19 +62,4 @@
   color: #fff;
 }
 
-.list-unstyled {
-  list-style: none;
-  padding: 0;
-}
 
-
-
-
-@media (max-width: 768px) {
-  .membership-container {
-    padding: 40px 20px; 
-  }
-  .card {
-    max-width: 100%;
-  }
-}
