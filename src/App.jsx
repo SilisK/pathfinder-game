@@ -20,7 +20,7 @@ import Support from './Pages/Support'
 import "./App.css";
 import Signup from "./Components/SignUp";
 import Reset from "./Components/Reset";
-// import Footer from "./Components/Footer";
+import Footer from "./Components/Footer";
 
 function App() {
   useEffect(() => {
@@ -44,7 +44,7 @@ function App() {
             <Route path="/reset" element={<Reset />} />
             <Route path="/play" element={<Play />} />
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </Router>
       </main>
     </div>

@@ -53,7 +53,7 @@ export default function Membership() {
                 <div className="card-header">
                   <h4 className="fw-normal">{tier.title}</h4>
                 </div>
-                <div className="card-body">
+                <div className="card-body grid place-items-center">
                   <p className="card-title">
                     ${tier.price.amount}
                     <small className="text-muted fw-light">

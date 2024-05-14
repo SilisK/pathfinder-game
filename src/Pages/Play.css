@@ -1,6 +1,5 @@
 .adventure-preview {
   height: 400px;
-  /* height: 371px; */
   width: 300px;
   background-color: #001d73;
   position: relative;
@@ -131,32 +130,25 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.728);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   z-index: 50;
 }
   
 .modal-content {
-  /* background-color: #174da5fb; */
-  background: linear-gradient(-30deg, #174da5fb, #45b1fe);
-  padding: 60px 40px 60px 40px;
-  border-radius: 0.5rem;
+  max-width: 960px;
+  width: 100%;
+  display: grid;
+  place-items: center;
   transform: scale(0.7);
-  opacity: 0.95;
-}
-.modal-content p{
-  width: 900px;
-  margin-bottom: 40px;
 }
 
 .modal-hidden {
   visibility: hidden; 
   opacity: 0;
-  transform: scale(0.5) ;
   transition: visibility 0s linear 0.5s, 
               opacity 0.5s ease-in-out, 
               transform 0.5s ease-in-out;

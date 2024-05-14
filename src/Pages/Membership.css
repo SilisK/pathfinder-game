@@ -52,6 +52,7 @@
   padding: 20px;
   background: linear-gradient(to bottom, #000e3b, #000b2d, #17001f); 
   display: grid;
+  grid-template-rows: 50px 1fr 50px;
 }
 
 .card-body li {
