@@ -56,6 +56,16 @@ function NavBar() {
         >
           Home
         </Link>
+        {/*  */}
+        <Link
+          to="/play"
+          className={`text-md px-6 py-2 ${
+            location.pathname == "/play" ? "location-underline" : ""
+          }`}
+        >
+          Play
+        </Link>
+        {/*  */}
         <Link
           to="/membership"
           className={`text-md px-6 py-2 ${
@@ -64,6 +74,7 @@ function NavBar() {
         >
           Membership
         </Link>
+        {/*  */}
         <Link
           to="/about"
           className={`text-md px-6 py-2 ${
@@ -72,6 +83,7 @@ function NavBar() {
         >
           About
         </Link>
+        {/*  */}
         {currentUser ? (
           <Link
             to="/"

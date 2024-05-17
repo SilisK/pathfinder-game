@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Membership.css";
 import { Link } from "react-router-dom";
 
@@ -32,9 +32,12 @@ const tiers = [
 ];
 
 export default function Membership() {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <div className="membership-container min-h-screen grid gap-11 py-24">
-      <header className="grid">
+      <header className="grid px-2">
         <div className="align-items-center ms-auto grid">
           <div className="text-center my-4 mx-auto place-items-center grid">
             <h2>
@@ -48,7 +51,10 @@ export default function Membership() {
         <div className="grid w-full gap-11 lg:grid-cols-3">
           {/*  */}
           {tiers.map((tier) => (
-            <div className="card-container flex justify-center">
+            <div
+              className="card-container flex justify-center"
+              key={crypto.randomUUID()}
+            >
               <div className="card text-center">
                 <div className="card-header">
                   <h4 className="fw-normal">{tier.title}</h4>
@@ -62,7 +68,12 @@ export default function Membership() {
                   </p>
                   <ul className="flex flex-col gap-8 py-4">
                     {tier.perks.map((perk) => (
-                      <li className="text-sm font-semibold">{perk}</li>
+                      <li
+                        className="text-sm font-semibold"
+                        key={crypto.randomUUID()}
+                      >
+                        {perk}
+                      </li>
                     ))}
                   </ul>
                   <button className="btn-gradient">

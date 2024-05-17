@@ -25,7 +25,11 @@ const SignUp = () => {
     }
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, newEmail, newPassword);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        newEmail,
+        newPassword
+      );
       console.log(userCredential);
       setNewEmail("");
       setNewPassword("");
@@ -45,7 +49,8 @@ const SignUp = () => {
             <div className="grid gap-2 drop-shadow-sm">
               <h2 className="text-3xl font-bold">Create Account</h2>
               <p>
-                To become a part of our community, please sign up using your personal information.
+                To become a part of our community, please sign up using your
+                personal information.
               </p>
             </div>
           </div>
@@ -72,20 +77,19 @@ const SignUp = () => {
                 />
                 <label>Create Password</label>
               </div>
-              <div className="policy-text items-center w-full">
+              <div className="policy-text justify-center items-center w-full">
                 <input
-                className="m-0"
+                  className="m-0"
                   type="checkbox"
                   id="policy"
                   checked={checked}
                   onChange={() => setChecked(!checked)}
                 />
-                <label htmlFor="policy" className="w-full m-0">
-                  I agree with the
-                  <a href="#"> Terms & Conditions</a>
-                </label>
+                <a href=""> Terms & Conditions</a>
               </div>
-              <button type="submit" className="btn-gradient">Sign Up</button>
+              <button type="submit" className="btn-gradient">
+                Sign Up
+              </button>
               <div className="bottom-link">
                 Already have an account?
                 <Link to="/login"> Login</Link>

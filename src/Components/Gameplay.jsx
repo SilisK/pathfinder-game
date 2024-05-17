@@ -20,21 +20,22 @@ export default function Gameplay({ gameInfo }) {
   const [generating, setGenerating] = useState(false);
   async function generate(m_messages) {
     setGenerating(true);
-    
 
     var imagePrompt = "";
 
-    for(let i = m_messages.length -2; i < m_messages.length; i++){
-        if(i === 0) continue;
-        imagePrompt += m_messages[i].content;
-      }
+    for (let i = m_messages.length - 2; i < m_messages.length; i++) {
+      if (i === 0) continue;
+      imagePrompt += m_messages[i].content;
+    }
     generateImage(imagePrompt, images, setImages, finish_callback);
 
-
     // Returns a story node with an image url
-    const node = await storyNode(m_messages, setMessages, setStory, finish_callback);
-
-    
+    const node = await storyNode(
+      m_messages,
+      setMessages,
+      setStory,
+      finish_callback
+    );
 
     // Only needed for the very first request
     if (!initialized && !node.error) setInitialized(true);
@@ -47,13 +48,15 @@ export default function Gameplay({ gameInfo }) {
     // This is either a story node or an error
     setCurrentMessage(node);
 
-    
-
-    function finish_callback(){
+    function finish_callback() {
       setCurrentFocusedNode(updatedStory.length - 1);
       setGenerating(false);
     }
   }
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   // This useEffect hook will run every time 'choicesCount' changes
   useEffect(() => {
@@ -66,23 +69,21 @@ export default function Gameplay({ gameInfo }) {
   }, [choicesCount, gameInfo.maxChoices]); // Dependencies array
 
   return (
-    <div className="grid place-items-center min-h-screen py-16 bg-black bg-opacity-40 backdrop-filter backdrop-blur">
-      <div className="w-full flex flex-col place-items-center gameplay-container">
+    <div className="grid place-items-center min-h-screen py-24 bg-black bg-opacity-40 backdrop-filter backdrop-blur">
+      <div className="w-full flex flex-col gap-8 place-items-center gameplay-container">
         {/* Progress Bar */}
-        <div className="progress-bar flex gap-5 mt-6 mb-4 w-11/12">
+        <div className="progress-bar grid gap-5 w-11/12 p-1">
           {/* Text Percentage */}
           <p className="w-min">
             {((choicesCount / gameInfo.maxChoices) * 100).toFixed()}%
           </p>
           {/* Fill Percentage */}
-          <div className="w-full">
-            <div
-              style={{
-                width: `${(choicesCount / gameInfo.maxChoices) * 100}%`,
-              }}
-              className="progress-fill"
-            ></div>
-          </div>
+          <div
+            style={{
+              width: `${(choicesCount / gameInfo.maxChoices) * 100}%`,
+            }}
+            className="progress-fill"
+          ></div>
         </div>
 
         {/* --Revisit previous choices-- and --Seed Info and Image--*/}
@@ -101,15 +102,8 @@ export default function Gameplay({ gameInfo }) {
               })`,
             }}
           >
-            {/* Plot Substring Display */}
-            {/* {textShown && (
-              <div className="plot-substring">
-                {currentMessage.plot ? currentMessage.plot.substring(0, 50) + "..." : ""}
-              </div>
-            )} */}
-
             {!initialized ? (
-              <h1 className="text-5xl font-bold my-5 text-center filter drop-shadow-md">
+              <h1 className="text-4xl font-bold text-center filter drop-shadow md:text-5xl">
                 {gameInfo.title}
               </h1>
             ) : null}
@@ -121,7 +115,7 @@ export default function Gameplay({ gameInfo }) {
               } p-3 relative`}
             >
               {textShown ? (
-                <div className="current-scenario">
+                <div className="bg-black bg-opacity-50 p-2 rounded-xl text-center">
                   {currentMessage.plot
                     ? currentMessage.plot
                     : currentMessage.end
@@ -129,11 +123,9 @@ export default function Gameplay({ gameInfo }) {
                     : gameInfo.plot}
                 </div>
               ) : null}
-              {/* Control panel (Toggle text, audio) */}
-              {/* <div className="hide-text flex items-center md:p-0"> */}
-              <div className="hide-text flex justify-center items-center mt-2">
+              {/* (Toggle text) */}
+              <div className="hide-text flex justify-center items-center">
                 <button
-                  // className="btn-gradient absolute my-2 flex items-center w-full text-md"
                   className="my-2 text-md"
                   onClick={() => setTextShown(!textShown)}
                 >
@@ -145,7 +137,6 @@ export default function Gameplay({ gameInfo }) {
                     }
                     className="mr-2"
                   />
-                  {/* {textShown ? "Hide" : "Show"} Text */}
                 </button>
               </div>
             </div>
@@ -244,13 +235,6 @@ export default function Gameplay({ gameInfo }) {
                 }}
               >
                 <b>{node.end ? "Ending" : i == 0 ? "Beginning" : i}</b>
-                <span className="font-light">
-                  {/* {node.plot
-                    ? node.plot.substring(0, 18) + "..."
-                    : node.end
-                    ? node.end.substring(0, 26) + "..."
-                    : null} */}
-                </span>
               </li>
             ))}
           </ul>

@@ -35,7 +35,7 @@ function About() {
   }, []);
 
   return (
-    <div className="grid place-items-center py-24 text-white min-h-screen">
+    <div className="grid gap-16 place-items-center py-24 text-white min-h-screen">
       <div className="overflow-hidden rounded-3xl w-11/12 z-10">
         <h2 className="p-4 text-2xl tracking-wider pb-4">
           What is <span className="text-blue-300">PATHFINDER</span> Exactly?
@@ -47,7 +47,7 @@ function About() {
           make shapes the direction of your unique story.
         </p>
       </div>
-      <div className="overflow-hidden rounded-3xl w-11/12 mb-24 mt-20 z-10">
+      <div className="overflow-hidden rounded-3xl w-11/12 z-10">
         <h2 className="p-4 text-2xl tracking-wider pb-4">
           The <span className="text-blue-300">FUTURE</span> of Gaming.
         </h2>

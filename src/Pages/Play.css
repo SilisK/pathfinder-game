@@ -73,14 +73,12 @@
   transform: translate(-50%);
 }
 
-
 .adventure-preview img {
   margin: auto;
   height: 400px;
   padding: 4px;
   transition: transform 0.3s ease-in-out;
 }
-
 
 .adventure-preview img:hover {
   transform: scale(1.1);
@@ -95,17 +93,12 @@
   width: 0;
 }
 
-
 .adventure-info {
     position: absolute;
     bottom: 0;
 }
 
-
-
-
-
-
+/*
 @media screen and (max-width: 500px) {
     .adventure-preview {
         width: 300px;
@@ -119,11 +112,7 @@
         height: 200px;
     }
 }
-
-
-
-
-
+*/
 
 /* ===Modal=== */
 .modal-backdrop {
@@ -139,11 +128,11 @@
 }
   
 .modal-content {
-  max-width: 960px;
+  max-width: 640px;
+  min-height: 440px;
   width: 100%;
   display: grid;
   place-items: center;
-  transform: scale(0.7);
 }
 
 .modal-hidden {
@@ -157,7 +146,6 @@
 .modal-visible {
   visibility: visible;
   opacity: 1;
-  transform: scale(1) ; 
   transition: visibility 0s linear 0s, 
               opacity 0.5s ease-in-out, 
               transform 0.5s ease-in-out;

@@ -1,6 +1,6 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
 import App from "./App";
+import { createRoot } from "react-dom/client";
 import { AuthProvider } from "./Components/AuthContext";
 
 const rootElement = document.getElementById("root");

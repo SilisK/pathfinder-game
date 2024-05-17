@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
 import "./Play.css";
+
+import { useState, useEffect } from "react";
 import Gameplay from "../Components/Gameplay";
 import ChooseAd from "../Components/ChooseAd";
 import adventures from "../assets/stories-examples/examples";
@@ -7,6 +8,9 @@ import adventures from "../assets/stories-examples/examples";
 //Audio Icon imported from backgroundSound
 import audioIcon from "../assets/backgroundMusic/better-sound-logo.svg";
 import muteIcon from "../assets/backgroundMusic/Mute_Icon.svg";
+
+// HOW TO PLAY GRAPHIC
+import howToPlayGraphic from "../Image/how-to-play-graphic.png";
 
 function Play() {
   const [showModal, setShowModal] = useState(false);
@@ -27,13 +31,11 @@ function Play() {
   const handleCloseModal = () => {
     localStorage.setItem("how-to-play-initialized", "true");
     setShowModal(false);
-    // navigate('/'); // Uncomment to navigate back to home when modal is closed
   };
 
   const handleAdventureClick = (index) => {
-    console.log(43);
     setSelectedAdventure(adventures[index]);
-
+    return;
     if (adventures[index].sound) {
       //audioElement is the variable that manages the sound element from the adventures array
       const audioElement = new Audio(adventures[index].sound);
@@ -69,7 +71,7 @@ function Play() {
         <Gameplay gameInfo={{ ...selectedAdventure, maxChoices: 3 }} />
       )}
       {/* Audio icon appearing only when the music plays */}
-      {audio ? (
+      {/* {audio ? (
         <img
           className="icon"
           onClick={toggleSound}
@@ -77,36 +79,26 @@ function Play() {
         ></img>
       ) : (
         <></>
-      )}
+      )} */}
 
       <div
         className={`modal-backdrop backdrop-filter backdrop-blur ${
           showModal ? "modal-visible" : "modal-hidden"
         }`}
       >
-        <div className="modal-content">
-          <h3 className="w-full text-white text-7xl mb-5 uppercase tracking-wider font-bold">
-            Before you start
-          </h3>
-          <div className="grid gap-8">
-            <p className="modal-text">
-              Once you begin the game, you will have a scenario with three
-              options presented to you.
-            </p>
-            <p className="modal-text">
-              Make a choice and the game will respond with an outcome that will
-              change the story and provide a new scenario and choices.
-            </p>
+        <div className="modal-content py-8 px-4 bg-gradient-to-b from-blue-800 sm:rounded-xl">
+          <h3 className="text-3xl font-bold md:text-6xl">HOW TO PLAY</h3>
+          <p className="p-4">Read the scenario text and choose one of the options below to progress through the story.</p>
+          <div className="p-4">
+            <img src={howToPlayGraphic} className="rounded-xl"/>
           </div>
           {/*  */}
-          <div className="w-full">
-            <button
-              onClick={handleCloseModal}
-              className="btn-gradient tracking-wider text-4xl rounded my-5 w-max px-16 p-4"
-            >
-              PLAY
-            </button>
-          </div>
+          <button
+            onClick={handleCloseModal}
+            className="btn-gradient rounded w-max px-16 p-4"
+          >
+            GOT IT!
+          </button>
         </div>
       </div>
     </div>
